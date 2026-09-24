@@ -1216,6 +1216,7 @@ set("statServices",services>0?services+"+":"160+");
 set("statSatisfaction",sat||"98%");
 set("statProsCard",pros>0?pros.toLocaleString(loc):"25 000+");
 set("statSatCard",sat||"98%");
+renderFooterLandingLinks();
 }
 function renderProProfileView(proId){
 const p=prosData.find(x=>x.id===proId);if(!p){renderMainView();return}
