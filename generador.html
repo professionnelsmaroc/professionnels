@@ -281,9 +281,10 @@ function keyOk(){return SUPABASE_KEY.indexOf("PEGA_AQUI")===-1&&SUPABASE_KEY.len
 function loadAll(){
 var st=document.getElementById("status");
 if(!keyOk()){st.textContent="⚠️ Falta la clave: abre este archivo con un editor y cambia la línea SUPABASE_KEY por tu anon key (la de tu index.html).";return}
+function fetchArr(url){return fetch(url,{headers:headers()}).then(function(r){return r.json().then(function(j){if(!r.ok||!Array.isArray(j)){throw new Error((j&&j.message)||("HTTP "+r.status))}return j})})}
 Promise.all([
-fetch(SUPABASE_URL+"/rest/v1/services?select=id,icon,name_fr,slug_fr&order=sort",{headers:headers()}).then(function(r){return r.json()}),
-fetch(SUPABASE_URL+"/rest/v1/professionals?select=category,city_index&limit=1000",{headers:headers()}).then(function(r){return r.json()})
+fetchArr(SUPABASE_URL+"/rest/v1/services?select=id,icon,name_fr,slug_fr&order=sort"),
+fetchArr(SUPABASE_URL+"/rest/v1/professionals?select=category,city_index&limit=1000")
 ]).then(function(res){
 var sRows=res[0]||[],pRows=res[1]||[];
 SERVICES=buildServicesFromRows(sRows);
