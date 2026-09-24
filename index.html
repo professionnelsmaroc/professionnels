@@ -1232,6 +1232,10 @@ const addrForMap=(p.links&&p.links.address)||"";
 if(mf)mf.src="https://www.google.com/maps?q="+encodeURIComponent((addrForMap?addrForMap+", ":"")+(p.city[currentLang]||"")+", "+countryLbl)+"&z="+(addrForMap?"16":"12")+"&output=embed";
 const mc=document.getElementById("ppMapCity");
 if(mc)mc.textContent="📍 "+(p.city[currentLang]||"");
+const lw=document.getElementById("ppLandingWrap"),ll=document.getElementById("ppLandingLink");
+if(lw&&ll){const ci=citiesData.indexOf(p.city);const s=servicesData.find(x=>x.id===p.category);
+if(s&&ci>=0){ll.href=landingUrlFor(p.category,ci);ll.textContent=(currentLang==="es"?"→ Ver todos los "+s.name.es+" en "+citiesData[ci].es:(currentLang==="ar"?"→ عرض كل "+s.name.ar+" في "+citiesData[ci].ar:"→ Voir tous les "+s.name.fr+" à "+citiesData[ci].fr));lw.style.display=""}
+else lw.style.display="none"}
 const adEl=document.getElementById("ppAddress");
 if(adEl){if(addrForMap){adEl.style.display="";adEl.textContent="🏠 "+addrForMap}else{adEl.style.display="none";adEl.textContent=""}}
 document.getElementById("ppRating").textContent=`★ ${p.rating.toFixed(1)}`;
