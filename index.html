@@ -2644,6 +2644,8 @@ if(document.getElementById("pfScheduleEnabled")){
   toggleScheduleUI();
 }
 
+function closeCookieBanner(){localStorage.setItem("propro_cookies","1");localStorage.setItem("clickpubli_cookies","1");const b=document.getElementById("cookieBanner");if(b)b.remove()}
+function showCookieBanner(){if(localStorage.getItem("propro_cookies")||localStorage.getItem("clickpubli_cookies"))return;const d=document.createElement("div");d.id="cookieBanner";d.style.cssText="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:400;flex-wrap:wrap";d.innerHTML=`<p style="font-size:.9rem;color:var(--gray)">Ce site utilise des cookies pour améliorer votre expérience. <a href="#" style="color:var(--primary);font-weight:600">En savoir plus</a></p><div style="display:flex;gap:.6rem"><button style="padding:.6rem 1.2rem;border-radius:10px;border:none;cursor:pointer;background:#e2e8f0;color:#0f172a;font-weight:600" onclick="closeCookieBanner()">Refuser</button><button style="padding:.6rem 1.2rem;border-radius:10px;border:none;cursor:pointer;background:var(--primary);color:#fff;font-weight:600" onclick="closeCookieBanner()">Accepter</button></div>`;document.body.appendChild(d)}
 initApp();
 </script>
 </body>
