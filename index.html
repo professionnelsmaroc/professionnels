@@ -369,7 +369,7 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 .profile-row:last-child{border-bottom:none}
 .profile-row span{color:var(--gray)}
 .profile-row strong{text-align:end}
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:white;box-shadow:0 -4px 20px rgba(0,0,0,.12);padding:1rem 1.2rem;z-index:2100;display:none;border-top:3px solid var(--primary)}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:white;box-shadow:0 -4px 20px rgba(0,0,0,.12);padding:1rem 1.2rem;z-index:400;display:none;border-top:3px solid var(--primary)}
 .cookie-banner.show{display:block}
 .cookie-inner{max-width:1200px;margin:0 auto;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .cookie-text{flex:1;font-size:.9rem;color:var(--dark);min-width:260px}
@@ -450,116 +450,103 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 .auth-logo-text{font-size:clamp(1.1rem,5vw,1.7rem)}
 }
 .ai-gen-btn{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:#fff;
-  font-weight:800;
-  cursor:pointer;
-  font-family:inherit;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:#fff;
+font-weight:800;
+cursor:pointer;
+font-family:inherit;
 }
-
 .ai-gen-btn:hover{
-  opacity:.92;
+opacity:.92;
 }
-
 .schedule-box{
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:12px;
-  background:var(--light-gray);
+border:1px solid var(--border);
+border-radius:14px;
+padding:12px;
+background:var(--light-gray);
 }
-
 .schedule-enable,
 .schedule-24{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:10px;
-  font-size:.92rem;
-  font-weight:600;
-  cursor:pointer;
+display:flex;
+align-items:center;
+gap:8px;
+margin-bottom:10px;
+font-size:.92rem;
+font-weight:600;
+cursor:pointer;
 }
-
 .schedule-day{
-  display:grid;
-  grid-template-columns:95px auto 1fr 1fr;
-  gap:8px;
-  align-items:center;
-  margin-bottom:8px;
+display:grid;
+grid-template-columns:95px auto 1fr 1fr;
+gap:8px;
+align-items:center;
+margin-bottom:8px;
 }
-
 .schedule-day label{
-  font-size:.88rem;
-  font-weight:700;
+font-size:.88rem;
+font-weight:700;
 }
-
 .schedule-day input[type="time"]{
-  width:100%;
-  padding:7px 8px;
-  border-radius:10px;
-  border:1.5px solid var(--border);
-  font-family:inherit;
-  background:white;
+width:100%;
+padding:7px 8px;
+border-radius:10px;
+border:1.5px solid var(--border);
+font-family:inherit;
+background:white;
 }
-
 .schedule-day input:disabled{
-  opacity:.55;
+opacity:.55;
 }
-
 .schedule-closed{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-size:.85rem;
-  font-weight:600;
-  color:var(--gray);
-  white-space:nowrap;
+display:flex;
+align-items:center;
+gap:6px;
+font-size:.85rem;
+font-weight:600;
+color:var(--gray);
+white-space:nowrap;
 }
-
 .schedule-public-day{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding:7px 0;
-  border-bottom:1px dashed var(--border);
-  font-size:.95rem;
+display:flex;
+justify-content:space-between;
+gap:12px;
+padding:7px 0;
+border-bottom:1px dashed var(--border);
+font-size:.95rem;
 }
-
 .schedule-public-day:last-child{
-  border-bottom:none;
+border-bottom:none;
 }
-
 .schedule-public-open{
-  font-weight:800;
-  color:var(--primary);
-  font-size:1rem;
+font-weight:800;
+color:var(--primary);
+font-size:1rem;
 }
-
 @media (max-width:640px){
-  .schedule-day{
-    grid-template-columns:82px auto;
-  }
-
-  .schedule-day input[type="time"]{
-    margin-top:4px;
-  }
+.schedule-day{
+grid-template-columns:82px auto;
 }
-</style>  
+.schedule-day input[type="time"]{
+margin-top:4px;
+}
+}
 </style>
-  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1b685bd1cc544e84b69790c9b376abec"}'></script><!-- End Cloudflare Web Analytics -->
+</style>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1b685bd1cc544e84b69790c9b376abec"}'></script><!-- End Cloudflare Web Analytics -->
 <!-- Hotjar Tracking Code for Professionnelsmaroc.click -->
 <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6784370,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:6784370,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 </head>
 <body>
@@ -608,7 +595,7 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 <div class="hero-orb o1"></div><div class="hero-orb o2"></div>
 <div class="container hero-grid">
 <div class="hero-content">
-<span class="hero-badge"><img src="https://flagcdn.com/w20/icon-512.png" alt=""><span data-i18n="hero_badge">N°1 des services à domicile au Maroc</span></span>
+<span class="hero-badge"><span data-i18n="hero_badge">N°1 des services à domicile au Maroc</span></span>
 <h1><span data-i18n="hero_title_1">Trouvez des</span> <span class="highlight" data-i18n="hero_title_highlight">professionnels de confiance</span> <span data-i18n="hero_title_2">près de chez vous</span></h1>
 <p class="hero-subtitle" data-i18n="hero_subtitle">Plombiers, électriciens, peintres, femmes de ménage... Contactez directement des artisans vérifiés partout au Maroc. Sans commission, sans intermédiaire.</p>
 <div class="search-box">
@@ -756,7 +743,7 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 <div class="modal-meta">📍 <span id="modalCity"></span> · 📞 <span id="modalPhone">+212</span></div>
 <div class="modal-rating" id="modalRating">★ 4.9</div>
 <div class="modal-desc" id="modalDesc"></div>
-<div class="modal-list"><h4 data-i18n="modal_services_title">Prestations proposées</h4><ul><li data-i18n="modal_service1">Réparations urgentes</li><li data-i18n="modal_service2">Installations neuves</li><li data-i18n="modal_service3">Entretien et maintenance</li><li data-i18n="modal_service4">Devis gratuit et personnalisé</li></ul></div>
+<div class="modal-list"><h4 data-i18n="modal_services_title">Prestations proposées</h4><ul id="modalServicesList"></ul></div>
 <div class="modal-actions">
 <a class="btn-call" id="modalCallBtn" href="tel:">📞 <span data-i18n="modal_call">Appeler</span></a>
 <a class="btn-wa" id="modalWaBtn" href="#" target="_blank">💬 <span data-i18n="modal_whatsapp">WhatsApp</span></a>
@@ -848,14 +835,12 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 <div class="admin-form-grid"><textarea id="pfDescFr" placeholder="Français" style="min-height:60px"></textarea><textarea id="pfDescEs" placeholder="Español" style="min-height:60px"></textarea><textarea id="pfDescAr" placeholder="العربية" class="full" style="min-height:60px"></textarea></div></div>
 <div class="form-group full"><label data-i18n="field_short_desc">Description courte (carte)</label>
 <div class="admin-form-grid"><input type="text" id="pfShortFr" placeholder="Français"><input type="text" id="pfShortEs" placeholder="Español"><input type="text" id="pfShortAr" placeholder="العربية" class="full"></div></div>
-
 <div class="form-group full">
 <label data-i18n="ai_auto_title">Générateur automatique</label>
 <button type="button" class="ai-gen-btn" onclick="generateProDescriptions()">
 ✨ <span data-i18n="ai_generate_desc">Générer la description automatiquement</span>
 </button>
 </div>
-
 <div class="form-group full">
 <label>🕒 <span data-i18n="schedule_title">Horaires de travail</span></label>
 <div class="schedule-box">
@@ -863,16 +848,13 @@ footer{background:var(--dark);color:#cbd5e1;padding:3.5rem 0 1.5rem}
 <input type="checkbox" id="pfScheduleEnabled" onchange="toggleScheduleUI()">
 <span data-i18n="schedule_enable">Activer les horaires</span>
 </label>
-
 <label class="schedule-24" id="pfSchedule24Wrap" style="display:none">
 <input type="checkbox" id="pfSchedule24" onchange="toggleSchedule24()">
 <span data-i18n="schedule_open24">Ouvert 24h/24</span>
 </label>
-
 <div id="pfScheduleRows" style="display:none"></div>
 </div>
 </div>
-
 <div class="form-group full"><label data-i18n="field_my_services">Services que je propose</label><div class="pro-svc-grid" id="proSvcGrid"></div><div class="pro-svc-imgs" id="proSvcImgs"></div></div>
 <div class="form-group full" id="proPhotosSection" style="display:none"><label data-i18n="field_photos">Photos de vos travaux</label><div id="proPhotosList" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem"></div><input type="file" id="proPhotoInput" accept="image/*" multiple style="font-size:.85rem"></div>
 </div>
@@ -990,7 +972,7 @@ profile_edit:"Editar",profile_save:"Guardar",profile_member_since:"Miembro desde
 favorites:"Favoritos",favorites_empty:"Aún no tienes favoritos. Haz clic en ♡ para añadir.",favorites_added:"Añadido a favoritos ❤",favorites_removed:"Eliminado de favoritos",favorites_login_required:"Inicia sesión para añadir favoritos",favorites_show:"Ver mis favoritos",
 reviews_title:"Reseñas de clientes",reviews_none:"Aún no hay reseñas. ¡Sé el primero!",reviews_placeholder:"Comparte tu experiencia...",reviews_submit:"Publicar reseña",reviews_login_required:"Inicia sesión para dejar una reseña.",reviews_success:"¡Gracias por tu reseña!",reviews_select_rating:"Por favor elige una puntuación",reviews_empty_comment:"Por favor escribe un comentario",
 admin_title:"Administración",admin_add_pro:"Añadir profesional",admin_edit_pro:"Editar profesional",admin_delete_confirm:"¿Eliminar este profesional?",admin_saved:"Guardado",admin_deleted:"Eliminado",admin_name_required:"Nombre requerido",admin_no_access:"Acceso reservado a administradores",admin_load_samples:"Cargar ejemplos",admin_svc_images:"Imágenes de servicios",admin_svc_categories:"Categorías de servicios",admin_add_category:"Añadir categoría",admin_edit_category:"Editar categoría",
-field_category:"Categoría",field_rating:"Nota",field_specialty:"Especialidad",field_description:"Descripción",field_pro_photo:"Foto del profesional",field_pro_cover:"Imagen de cabecera",field_photos:"Fotos de tus trabajos",field_my_services:"Servicios que ofrezco",field_website:"Sitio web (opcional)",install_app:"Instalar app",
+field_category:"Categoría",field_rating:"Nota",field_specialty:"Especialidad",field_description:"Descripción",field_pro_photo:"Foto del profesional",field_pro_cover:"Foto de cabecera",field_photos:"Fotos de tus trabajos",field_my_services:"Servicios que ofrezco",field_website:"Sitio web (opcional)",install_app:"Instalar app",
 my_pro_card:"Mi ficha profesional",pro_only:"Solo para profesionales",create_pro_card:"Crear mi ficha profesional",
 faq_title:"Preguntas frecuentes",
 quote_title:"Pedir presupuesto",quote_subtitle:"El mensaje se enviará por WhatsApp al profesional.",quote_name:"Tu nombre",quote_phone:"Tu teléfono",quote_desc:"Describe tu necesidad",quote_send:"Enviar por WhatsApp",
@@ -1157,7 +1139,7 @@ p11:{fr:"Peintre à Casablanca pour appartements, villas et locaux : peinture in
 p12:{fr:"Peintre à Agadir spécialisé en façades et peinture extérieure résistante au climat côtier, avec produits de qualité et rendu propre et durable.",es:"Pintor en Agadir especializado en fachadas y pintura exterior resistente al clima costero, con productos de calidad y resultado limpio y duradero.",ar:"صباغ في أكادير متخصص في الواجهات والصباغة الخارجية المقاومة للمناخ الساحلي، بمنتجات جودة ونتيجة نظيفة ودائمة."},
 p13:{fr:"Femme de ménage professionnelle à Casablanca : entretien complet du domicile, vitres, repassage et nettoyage profond, avec discrétion et minutie reconnues.",es:"Mujer de limpieza profesional en Casablanca: mantenimiento completo del hogar, cristales, planchado y limpieza profunda, con discreción y minuciosidad reconocidas.",ar:"عاملة تنظيف محترفة في الدار البيضاء: عناية كاملة بالمنزل والزجاج والكي والتنظيف العميق، مع كتومة ودقة معهودتين."},
 p14:{fr:"Service de ménage à Rabat pour maisons, appartements et bureaux : nettoyage régulier ou saisonnier, vitres et repassage inclus, organisé avec méthode.",es:"Servicio de limpieza en Rabat para casas, pisos y oficinas: limpieza regular o de temporada, cristales y planchado incluidos, organizado con método.",ar:"خدمة تنظيف في الرباط للمنازل والشقق والمكاتب: تنظيف دوري أو موسمي يشمل الزجاج والكي، بمنهجية منظمة."},
-p15:{fr:"Technicien en climatisation à Casablanca : installation de splits, entretien annuel et réparation de fuites de gaz toutes marques, avec pièces garanties.",es:"Técnico de climatización en Casablanca: instalación de splits, mantenimiento anual y reparación de fugas de gas de todas las marcas, con piezas garantizadas.",ar:"تقني تكييف في الدار البيضاء: تركيب سبليت وصيانة سنوية وإصلاح تسريبات الغاز لجميع العلامات، بقطع مضمونة."},
+p15:{fr:"Technicien en climatisation à Casablanca : installation de splits, entretien annuel et réparation de fugas de gaz toutes marques, avec pièces garanties.",es:"Técnico de climatización en Casablanca: instalación de splits, mantenimiento anual y reparación de fugas de gas de todas las marcas, con piezas garantizadas.",ar:"تقني تكييف في الدار البيضاء: تركيب سبليت وصيانة سنوية وإصلاح تسريبات الغاز لجميع العلامات، بقطع مضمونة."},
 p16:{fr:"Spécialiste climatisation à Marrakech : installation, recharge de gaz et entretien complet du split au gainable, pour un froid performant et économe.",es:"Especialista en climatización en Marrakech: instalación, recarga de gas y mantenimiento completo del split al conducto, para un frío eficiente y de bajo consumo.",ar:"متخصص تكييف في مراكش: تركيب وتعبئة غاز وصيانة شاملة من السبليت إلى المركزي، لتبريد فعال ومقتصد."},
 p17:{fr:"Menuisier à Fès, artisan du bois depuis plus de quinze ans : salons marocains sculptés, portes traditionnelles et placards sur mesure, pose soignée.",es:"Carpintero en Fez, artesano de la madera desde hace más de quince años: salones marroquíes tallados, puertas tradicionales y armarios a medida, colocación cuidada.",ar:"نجار في فاس، حرفي الخشب منذ أكثر من خمسة عشر عاماً: صالونات مغربية منقوشة وأبواب تقليدية وخزائن حسب الطلب، بتركيب متقن."},
 p18:{fr:"Menuisier à Casablanca pour agencements modernes : dressings, bureaux, cuisines fonctionnelles et réparations rapides, avec mesures à domicile et plans clairs.",es:"Carpintero en Casablanca para equipamientos modernos: vestidores, escritorios, cocinas funcionales y reparaciones rápidas, con medidas a domicilio y planos claros.",ar:"نجار في الدار البيضاء للتجهيزات العصرية: غرف ملابس ومكاتب ومطابخ عملية وإصلاحات سريعة، مع قياسات في المنزل وتصاميم واضحة."},
@@ -1175,15 +1157,15 @@ p29:{fr:"Jardinier à Essaouira habitué aux jardins exposés au vent marin : en
 p30:{fr:"Jardinier à Agadir pour création et entretien de jardins : gazon naturel ou synthétique, plantation adaptée à la chaleur et entretien mensuel abordable.",es:"Jardinero en Agadir para creación y mantenimiento de jardines: césped natural o artificial, plantación adaptada al calor y mantenimiento mensual asequible.",ar:"بستاني في أكادير لإنشاء الحدائق والعناية بها: عشب طبيعي أو اصطناعي، غرس ملائم للحرارة وعناية شهرية في المتناول."}
 };
 const sampleAvatars=["men/32","men/45","women/44","men/75","women/65","men/22","men/51","men/63","men/85","men/12","men/41","men/76","women/21","women/68","men/58","men/36","men/91","men/15","men/67","men/29","men/83","men/47","men/54","men/71","women/33","women/57","women/12","men/94","men/38","men/61"];
-const sampleRaw=[["p1","Mohammed El Amrani","👨","plomberie",0,4.9,127,"+212 6 70 96 40 30","212670964030"],["p2","Youssef Benali","👨","electricite",1,4.8,98,"+212 6 70 96 40 30","212670964030"],["p3","Fatima Zahra","👩","menage",2,5.0,156,"+212 6 70 96 40 30","212670964030"],["p4","Hassan Idrissi","👨‍🎨","peinture",3,4.9,84,"+212 6 70 96 40 30","212670964030"],["p5","Amina Berrada","👩","climatisation",4,4.7,73,"+212 6 70 96 40 30","212670964030"],["p6","Rachid Ouazzani","🧔","menuiserie",5,4.8,65,"+212 6 70 96 40 30","212670964030"],["p7","Khalid Tazi","👨","plomberie",1,4.7,88,"+212 6 70 96 40 30","212670964030"],["p8","Omar Cherkaoui","👨‍🔧","plomberie",2,4.6,64,"+212 6 70 96 40 30","212670964030"],["p9","Reda Alami","👨","electricite",0,4.8,102,"+212 6 70 96 40 30","212670964030"],["p10","Nabil Fassi","👨","electricite",3,4.6,57,"+212 6 70 96 40 30","212670964030"],["p11","Said Bennis","👨","peinture",0,4.7,91,"+212 6 70 96 40 30","212670964030"],["p12","Adil Hamdaoui","👨","peinture",5,4.5,46,"+212 6 70 96 40 30","212670964030"],["p13","Khadija Amrani","👩","menage",0,4.9,143,"+212 6 70 96 40 30","212670964030"],["p14","Salma Berrada","👩","menage",1,4.7,78,"+212 6 70 96 40 30","212670964030"],["p15","Hamid Ouazzani","👨‍🔧","climatisation",0,4.6,69,"+212 6 70 96 40 30","212670964030"],["p16","Karim Idrissi","👨","climatisation",2,4.7,83,"+212 6 70 96 40 30","212670964030"],["p17","Mustafa Tazi","🧔","menuiserie",4,4.8,72,"+212 6 70 96 40 30","212670964030"],["p18","Jamal Fassi","🧔","menuiserie",0,4.6,59,"+212 6 70 96 40 30","212670964030"],["p19","Abdellah Cherkaoui","👨","serrurerie",0,4.7,95,"+212 6 70 96 40 30","212670964030"],["p20","Hicham Alami","👨","serrurerie",1,4.6,61,"+212 6 70 96 40 30","212670964030"],["p21","Tarik Bennis","👨‍","serrurerie",2,4.5,44,"+212 6 70 96 40 30","212670964030"],["p22","Brahim Hamdaoui","👷","maconnerie",2,4.7,86,"+212 6 70 96 40 30","212670964030"],["p23","Lahcen Bennis","👷","maconnerie",7,4.6,58,"+212 6 70 96 40 30","212670964030"],["p24","Ali Tazi","👷","maconnerie",4,4.5,41,"+212 6 70 96 40 30","212670964030"],["p25","Samira Tazi","👩","electromenager",0,4.8,104,"+212 6 70 96 40 30","212670964030"],["p26","Nadia Fassi","👩","electromenager",3,4.7,76,"+212 6 70 96 40 30","212670964030"],["p27","Imane Cherkaoui","👩","electromenager",1,4.6,63,"+212 6 70 96 40 30","212670964030"],["p28","Aziz Cherkaoui","👨","jardinage",1,4.7,82,"+212 6 70 96 40 30","212670964030"],["p29","Driss Amrani","👨","jardinage",18,4.6,54,"+212 6 70 96 40 30","212670964030"],["p30","Hassan Ouazzani","👨‍","jardinage",5,4.5,39,"+212 6 70 96 40 30","212670964030"]];
+const sampleRaw=[["p1","Mohammed El Amrani","👨","plomberie",0,4.9,127,"+212 6 70 96 40 30","212670964030"],["p2","Youssef Benali","👨","electricite",1,4.8,98,"+212 6 70 96 40 30","212670964030"],["p3","Fatima Zahra","👩","menage",2,5.0,156,"+212 6 70 96 40 30","212670964030"],["p4","Hassan Idrissi","👨🎨","peinture",3,4.9,84,"+212 6 70 96 40 30","212670964030"],["p5","Amina Berrada","👩","climatisation",4,4.7,73,"+212 6 70 96 40 30","212670964030"],["p6","Rachid Ouazzani","🧔","menuiserie",5,4.8,65,"+212 6 70 96 40 30","212670964030"],["p7","Khalid Tazi","👨","plomberie",1,4.7,88,"+212 6 70 96 40 30","212670964030"],["p8","Omar Cherkaoui","👨‍🔧","plomberie",2,4.6,64,"+212 6 70 96 40 30","212670964030"],["p9","Reda Alami","👨","electricite",0,4.8,102,"+212 6 70 96 40 30","212670964030"],["p10","Nabil Fassi","👨","electricite",3,4.6,57,"+212 6 70 96 40 30","212670964030"],["p11","Said Bennis","👨","peinture",0,4.7,91,"+212 6 70 96 40 30","212670964030"],["p12","Adil Hamdaoui","👨","peinture",5,4.5,46,"+212 6 70 96 40 30","212670964030"],["p13","Khadija Amrani","👩","menage",0,4.9,143,"+212 6 70 96 40 30","212670964030"],["p14","Salma Berrada","👩","menage",1,4.7,78,"+212 6 70 96 40 30","212670964030"],["p15","Hamid Ouazzani","👨‍🔧","climatisation",0,4.6,69,"+212 6 70 96 40 30","212670964030"],["p16","Karim Idrissi","👨","climatisation",2,4.7,83,"+212 6 70 96 40 30","212670964030"],["p17","Mustafa Tazi","🧔","menuiserie",4,4.8,72,"+212 6 70 96 40 30","212670964030"],["p18","Jamal Fassi","🧔","menuiserie",0,4.6,59,"+212 6 70 96 40 30","212670964030"],["p19","Abdellah Cherkaoui","👨","serrurerie",0,4.7,95,"+212 6 70 96 40 30","212670964030"],["p20","Hicham Alami","👨","serrurerie",1,4.6,61,"+212 6 70 96 40 30","212670964030"],["p21","Tarik Bennis","👨‍","serrurerie",2,4.5,44,"+212 6 70 96 40 30","212670964030"],["p22","Brahim Hamdaoui","👷","maconnerie",2,4.7,86,"+212 6 70 96 40 30","212670964030"],["p23","Lahcen Bennis","👷","maconnerie",7,4.6,58,"+212 6 70 96 40 30","212670964030"],["p24","Ali Tazi","👷","maconnerie",4,4.5,41,"+212 6 70 96 40 30","212670964030"],["p25","Samira Tazi","👩","electromenager",0,4.8,104,"+212 6 70 96 40 30","212670964030"],["p26","Nadia Fassi","👩","electromenager",3,4.7,76,"+212 6 70 96 40 30","212670964030"],["p27","Imane Cherkaoui","👩","electromenager",1,4.6,63,"+212 6 70 96 40 30","212670964030"],["p28","Aziz Cherkaoui","👨","jardinage",1,4.7,82,"+212 6 70 96 40 30","212670964030"],["p29","Driss Amrani","👨","jardinage",18,4.6,54,"+212 6 70 96 40 30","212670964030"],["p30","Hassan Ouazzani","👨‍","jardinage",5,4.5,39,"+212 6 70 96 40 30","212670964030"]];
 const samplePros=sampleRaw.map((r,i)=>({id:r[0],name:r[1],emoji:r[2],category:r[3],city_index:r[4],rating:r[5],reviews:r[6],phone:r[7],whatsapp:r[8],specialty:sampleMeta[r[3]].specialty,description:(sampleDescs[r[0]]||sampleMeta[r[3]].desc),photo_url:`https://randomuser.me/api/portraits/${sampleAvatars[i]}.jpg`,photos:[`https://picsum.photos/seed/${r[0]}-w1/400/300`,`https://picsum.photos/seed/${r[0]}-w2/400/300`]}));
 let currentLang=localStorage.getItem("propro_lang")||"fr";
 Object.assign(translations.fr,{ai_auto_title:"Générateur automatique",ai_generate_desc:"Générer la description automatiquement",ai_generated:"Descriptions générées automatiquement",schedule_title:"Horaires de travail",schedule_enable:"Activer les horaires",schedule_open24:"Ouvert 24h/24",schedule_closed:"Fermé",schedule_public_title:"Horaires d'ouverture"});
 Object.assign(translations.es,{ai_auto_title:"Generador automático",ai_generate_desc:"Generar la descripción automáticamente",ai_generated:"Descripciones generadas automáticamente",schedule_title:"Horarios de trabajo",schedule_enable:"Activar horarios",schedule_open24:"Abierto 24h/24",schedule_closed:"Cerrado",schedule_public_title:"Horario de apertura"});
 Object.assign(translations.ar,{ai_auto_title:"مولد تلقائي",ai_generate_desc:"إنشاء الوصف تلقائياً",ai_generated:"تم إنشاء الأوصاف تلقائياً",schedule_title:"أوقات العمل",schedule_enable:"تفعيل أوقات العمل",schedule_open24:"مفتوح 24 ساعة",schedule_closed:"مغلق",schedule_public_title:"أوقات العمل"});
- Object.assign(translations.fr,{field_address:"Adresse du business"});
+Object.assign(translations.fr,{field_address:"Adresse du business"});
 Object.assign(translations.es,{field_address:"Dirección del negocio"});
-Object.assign(translations.ar,{field_address:"عنوان النشاط"}); 
+Object.assign(translations.ar,{field_address:"عنوان النشاط"});
 let currentModalProId=null,currentProProfileId=null,lastProsFilter={id:null,city:null,favs:false};
 let selectedRating=0,isEditingProfile=false,currentProfile=null,currentUserFavorites=[];
 let prosData=[],proServicesMap={},editingProId=null,currentPhotos=[],pendingAvatarUrl=null,pendingCoverUrl=null;
@@ -1198,7 +1180,6 @@ function closeDrawer(){document.getElementById("drawer").classList.remove("open"
 function goSection(id){closeDrawer();showMainView();setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})},60)}
 function openLightbox(u){document.getElementById("lightboxImg").src=u;document.getElementById("lightbox").classList.add("show")}
 function closeLightbox(){document.getElementById("lightbox").classList.remove("show")}
-
 function toggleLangDD(e){e.stopPropagation();document.getElementById("langDDMenu").classList.toggle("open")}
 document.addEventListener("click",e=>{if(!e.target.closest(".lang-dd"))document.getElementById("langDDMenu").classList.remove("open")});
 function renderLangSwitchers(){
@@ -1522,7 +1503,23 @@ document.getElementById("pros").scrollIntoView({behavior:"smooth"});
 }
 function filterByService(id){renderPros(id,null,false);document.getElementById("pros").scrollIntoView({behavior:"smooth"})}
 function shortDescFor(p){const sk=shortKey();if(p.desc&&p.desc[sk])return p.desc[sk];const s=sampleShortDescs[p.id];if(s&&s[currentLang])return s[currentLang];const d=(p.desc&&p.desc[currentLang])||"";return d.length>140?d.slice(0,140).replace(/\s+\S*$/,"")+"…":d}
-function fillProModal(id){const p=prosData.find(x=>x.id===id);if(!p)return;document.getElementById("modalAvatar").innerHTML=proAvatarHtml(p);document.getElementById("modalName").textContent=p.name;document.getElementById("modalSpecialty").textContent=proSpecialtyCard(p);document.getElementById("modalCity").textContent=p.city[currentLang];document.getElementById("modalPhone").textContent=p.phone;document.getElementById("modalRating").textContent=`★ ${p.rating.toFixed(1)} (${p.reviews} ${t("reviews")})`;document.getElementById("modalDesc").textContent=shortDescFor(p);document.getElementById("modalCallBtn").href="tel:"+p.phone.replace(/\s/g,"");document.getElementById("modalWaBtn").href="https://wa.me/"+p.whatsapp}
+function fillProModal(id){const p=prosData.find(x=>x.id===id);if(!p)return;document.getElementById("modalAvatar").innerHTML=proAvatarHtml(p);document.getElementById("modalName").textContent=p.name;document.getElementById("modalSpecialty").textContent=proSpecialtyCard(p);document.getElementById("modalCity").textContent=p.city[currentLang];document.getElementById("modalPhone").textContent=p.phone;document.getElementById("modalRating").textContent=`★ ${p.rating.toFixed(1)} (${p.reviews} ${t("reviews")})`;document.getElementById("modalDesc").textContent=shortDescFor(p);renderModalServices(p);document.getElementById("modalCallBtn").href="tel:"+p.phone.replace(/\s/g,"");document.getElementById("modalWaBtn").href="https://wa.me/"+p.whatsapp}
+function renderModalServices(p){
+const ul=document.getElementById("modalServicesList");
+if(!ul)return;
+const cats=(proServicesMap[p.id]&&proServicesMap[p.id].length)?proServicesMap[p.id].map(sv=>sv.service_id):[p.category];
+const items=[];
+cats.forEach(cid=>{
+const sd=servicesData.find(s=>s.id===cid);
+const key=genDetectCategoryKey(sd||{id:cid,name:{fr:"",es:"",ar:""}});
+const content=GEN_CATEGORY_CONTENT[key]||GEN_CATEGORY_CONTENT.default;
+const pool=(content.services&&content.services[currentLang])||GEN_CATEGORY_CONTENT.default.services[currentLang];
+pool.forEach(s=>{if(items.indexOf(s)===-1)items.push(s)});
+});
+const list=items.slice(0,6);
+list.push(t("modal_service4"));
+ul.innerHTML=list.map(s=>`<li>${capFirst(s)}</li>`).join("");
+}
 function openModal(id){currentModalProId=id;fillProModal(id);renderReviewsBlock(id,"reviewsModal");updateModalFavButton(id);document.getElementById("contactModal").classList.add("active");document.body.style.overflow="hidden"}
 function closeModal(){currentModalProId=null;document.getElementById("contactModal").classList.remove("active");document.body.style.overflow=""}
 function openAuth(tab){switchAuthTab(tab||"login");document.getElementById("authModal").classList.add("active");document.body.style.overflow="hidden";renderCountryDropdown()}
@@ -1573,7 +1570,7 @@ else if(chatStep==="summary"){html=`<button class="chat-chip" onclick="chatSendW
 c.innerHTML=html}
 function chatPickService(sid){const s=servicesData.find(x=>x.id===sid);if(!s)return;chatData.service=s;addChat(s.name[currentLang],"user");chatStep="city";addChat(t("chat_q_city"),"bot");renderChatChips()}
 function chatPickCity(i){const x=citiesData[i];if(!x)return;chatData.city=x;addChat(x[currentLang],"user");chatStep="need";addChat(t("chat_q_need"),"bot");renderChatChips()}
-function chatPickUrgency(i){const u=chatUrgOpts[currentLang][i];if(!u)return;chatData.urgency=u;addChat(u,"user");chatStep="name";addChat(t("chat_q_name"),"bot");renderChatChips()}
+function chatPickUrgency(i){const u=chatUrgOpts[currentLang][i];if(!u)return;chatData.urgency=u;chatStep="name";addChat(t("chat_q_name"),"bot");renderChatChips()}
 function chatSkipEmail(){chatData.email="";addChat(t("chat_skip"),"user");chatStep="summary";addChat(chatSummaryText(),"bot");renderChatChips()}
 function chatSummaryText(){const s=chatData.service?chatData.service.name[currentLang]:"—";const c=chatData.city?chatData.city[currentLang]:"—";
 let out=`${t("chat_summary_title")}
@@ -1668,534 +1665,513 @@ handleRoute();
 setTimeout(function(){try{var h1=document.querySelector(".hero h1");if(h1&&!h1.textContent.trim()){hardRenderFallback()}}catch(e){}},2500);
 window.addEventListener("load",function(){setTimeout(hardRenderFallback,800)});
 /* =========================================================
-   GENERADOR AUTOMÁTICO DE DESCRIPCIONES + HORARIOS
-   Sin token, sin IA externa, basado en plantillas
+GENERADOR AUTOMÁTICO DE DESCRIPCIONES + HORARIOS
+Sin token, sin IA externa, basado en plantillas
 ========================================================= */
-
 Object.assign(translations.fr, {
-  ai_auto_title:"Générateur automatique",
-  ai_generate_desc:"Générer la description automatiquement",
-  ai_generated:"Descriptions générées automatiquement",
-  schedule_title:"Horaires de travail",
-  schedule_enable:"Activer les horaires",
-  schedule_open24:"Ouvert 24h/24",
-  schedule_closed:"Fermé",
-  schedule_public_title:"Horaires d'ouverture"
+ai_auto_title:"Générateur automatique",
+ai_generate_desc:"Générer la description automatiquement",
+ai_generated:"Descriptions générées automatiquement",
+schedule_title:"Horaires de travail",
+schedule_enable:"Activer les horaires",
+schedule_open24:"Ouvert 24h/24",
+schedule_closed:"Fermé",
+schedule_public_title:"Horaires d'ouverture"
 });
-
 Object.assign(translations.es, {
-  ai_auto_title:"Generador automático",
-  ai_generate_desc:"Generar la descripción automáticamente",
-  ai_generated:"Descripciones generadas automáticamente",
-  schedule_title:"Horarios de trabajo",
-  schedule_enable:"Activar horarios",
-  schedule_open24:"Abierto 24h/24",
-  schedule_closed:"Cerrado",
-  schedule_public_title:"Horario de apertura"
+ai_auto_title:"Generador automático",
+ai_generate_desc:"Generar la descripción automáticamente",
+ai_generated:"Descripciones generadas automáticamente",
+schedule_title:"Horarios de trabajo",
+schedule_enable:"Activar horarios",
+schedule_open24:"Abierto 24h/24",
+schedule_closed:"Cerrado",
+schedule_public_title:"Horario de apertura"
 });
-
 Object.assign(translations.ar, {
-  ai_auto_title:"مولد تلقائي",
-  ai_generate_desc:"إنشاء الوصف تلقائياً",
-  ai_generated:"تم إنشاء الأوصاف تلقائياً",
-  schedule_title:"أوقات العمل",
-  schedule_enable:"تفعيل أوقات العمل",
-  schedule_open24:"مفتوح 24 ساعة",
-  schedule_closed:"مغلق",
-  schedule_public_title:"أوقات العمل"
+ai_auto_title:"مولد تلقائي",
+ai_generate_desc:"إنشاء الوصف تلقائياً",
+ai_generated:"تم إنشاء الأوصاف تلقائياً",
+schedule_title:"أوقات العمل",
+schedule_enable:"تفعيل أوقات العمل",
+schedule_open24:"مفتوح 24 ساعة",
+schedule_closed:"مغلق",
+schedule_public_title:"أوقات العمل"
 });
-
 const SCHEDULE_DAY_KEYS = ["mon","tue","wed","thu","fri","sat","sun"];
-
 const SCHEDULE_DAY_LABELS = {
-  fr:{
-    mon:"Lundi",
-    tue:"Mardi",
-    wed:"Mercredi",
-    thu:"Jeudi",
-    fri:"Vendredi",
-    sat:"Samedi",
-    sun:"Dimanche"
-  },
-  es:{
-    mon:"Lunes",
-    tue:"Martes",
-    wed:"Miércoles",
-    thu:"Jueves",
-    fri:"Viernes",
-    sat:"Sábado",
-    sun:"Domingo"
-  },
-  ar:{
-    mon:"الاثنين",
-    tue:"الثلاثاء",
-    wed:"الأربعاء",
-    thu:"الخميس",
-    fri:"الجمعة",
-    sat:"السبت",
-    sun:"الأحد"
-  }
+fr:{
+mon:"Lundi",
+tue:"Mardi",
+wed:"Mercredi",
+thu:"Jeudi",
+fri:"Vendredi",
+sat:"Samedi",
+sun:"Dimanche"
+},
+es:{
+mon:"Lunes",
+tue:"Martes",
+wed:"Miércoles",
+thu:"Jueves",
+fri:"Viernes",
+sat:"Sábado",
+sun:"Domingo"
+},
+ar:{
+mon:"الاثنين",
+tue:"الثلاثاء",
+wed:"الأربعاء",
+thu:"الخميس",
+fri:"الجمعة",
+sat:"السبت",
+sun:"الأحد"
+}
 };
-
 const GEN_CATEGORY_CONTENT = {
-  default:{
-    job:{
-      fr:"professionnel",
-      es:"profesional",
-      ar:"محترف"
-    },
-    services:{
-      fr:[
-        "dépannage rapide",
-        "installation",
-        "entretien",
-        "réparation",
-        "conseils personnalisés"
-      ],
-      es:[
-        "reparaciones rápidas",
-        "instalación",
-        "mantenimiento",
-        "soluciones a medida",
-        "consejos personalizados"
-      ],
-      ar:[
-        "تدخلات سريعة",
-        "تركيب",
-        "صيانة",
-        "إصلاح",
-        "نصائح شخصية"
-      ]
-    }
-  },
-
-  plomberie:{
-    job:{
-      fr:"plombier",
-      es:"fontanero",
-      ar:"سباك"
-    },
-    services:{
-      fr:[
-        "réparation de fuites d'eau",
-        "débouchage",
-        "installation sanitaire",
-        "chauffe-eau",
-        "robinetterie"
-      ],
-      es:[
-        "reparación de fugas de agua",
-        "desatascos",
-        "instalación sanitaria",
-        "calentadores de agua",
-        "grifería"
-      ],
-      ar:[
-        "إصلاح تسربات المياه",
-        "تسريح القنوات",
-        "تركيب الأدوات الصحية",
-        "سخانات الماء",
-        "الحنفيات"
-      ]
-    }
-  },
-
-  electricite:{
-    job:{
-      fr:"électricien",
-      es:"electricista",
-      ar:"كهربائي"
-    },
-    services:{
-      fr:[
-        "dépannage électrique",
-        "installation de tableaux",
-        "éclairage",
-        "prises et interrupteurs",
-        "mise aux normes"
-      ],
-      es:[
-        "reparaciones eléctricas",
-        "instalación de cuadros eléctricos",
-        "iluminación",
-        "enchufes e interruptores",
-        "normalización de instalaciones"
-      ],
-      ar:[
-        "إصلاح الأعطال الكهربائية",
-        "تركيب اللوحات الكهربائية",
-        "الإضاءة",
-        "المقابس والمفاتيح",
-        "تحديث التوصيلات"
-      ]
-    }
-  },
-
-  peinture:{
-    job:{
-      fr:"peintre",
-      es:"pintor",
-      ar:"صباغ"
-    },
-    services:{
-      fr:[
-        "peinture intérieure",
-        "peinture extérieure",
-        "enduits et finitions",
-        "traitement de l'humidité",
-        "décoration"
-      ],
-      es:[
-        "pintura interior",
-        "pintura exterior",
-        "enlucido y acabados",
-        "tratamiento de humedad",
-        "decoración"
-      ],
-      ar:[
-        "الصباغة الداخلية",
-        "الصباغة الخارجية",
-        "التشطيبات",
-        "معالجة الرطوبة",
-        "الديكور"
-      ]
-    }
-  },
-
-  menage:{
-    job:{
-      fr:"professionnel du ménage",
-      es:"profesional de limpieza",
-      ar:"متخصص في التنظيف"
-    },
-    services:{
-      fr:[
-        "ménage à domicile",
-        "nettoyage de bureaux",
-        "nettoyage après travaux",
-        "lavage de vitres",
-        "repassage"
-      ],
-      es:[
-        "limpieza a domicilio",
-        "limpieza de oficinas",
-        "limpieza después de obras",
-        "lavado de ventanas",
-        "planchado"
-      ],
-      ar:[
-        "التنظيف المنزلي",
-        "تنظيف المكاتب",
-        "التنظيف بعد الأشغال",
-        "غسل النوافذ",
-        "الكي"
-      ]
-    }
-  },
-
-  climatisation:{
-    job:{
-      fr:"technicien en climatisation",
-      es:"técnico de climatización",
-      ar:"تقني تكييف"
-    },
-    services:{
-      fr:[
-        "installation de climatiseurs",
-        "entretien annuel",
-        "recharge de gaz",
-        "réparation de fuites",
-        "nettoyage des filtres"
-      ],
-      es:[
-        "instalación de aires acondicionados",
-        "mantenimiento anual",
-        "recarga de gas",
-        "reparación de fugas",
-        "limpieza de filtros"
-      ],
-      ar:[
-        "تركيب المكيفات",
-        "الصيانة السنوية",
-        "شحن الغاز",
-        "إصلاح التسربات",
-        "تنظيف الفلاتر"
-      ]
-    }
-  },
-
-  menuiserie:{
-    job:{
-      fr:"menuisier",
-      es:"carpintero",
-      ar:"نجار"
-    },
-    services:{
-      fr:[
-        "portes intérieures",
-        "placards sur mesure",
-        "meubles en bois",
-        "réparation de meubles",
-        "habillage mural"
-      ],
-      es:[
-        "puertas interiores",
-        "armarios a medida",
-        "muebles de madera",
-        "reparación de muebles",
-        "revestimientos murales"
-      ],
-      ar:[
-        "الأبواب الداخلية",
-        "خزائن حسب الطلب",
-        "أثاث خشبي",
-        "إصلاح الأثاث",
-        "تكسية الجدران"
-      ]
-    }
-  },
-
-  serrurerie:{
-    job:{
-      fr:"serrurier",
-      es:"cerrajero",
-      ar:"صانع أقفال"
-    },
-    services:{
-      fr:[
-        "ouverture de portes",
-        "changement de serrures",
-        "installation de portes blindées",
-        "duplicata de clés",
-        "dépannage urgent"
-      ],
-      es:[
-        "apertura de puertas",
-        "cambio de cerraduras",
-        "instalación de puertas blindadas",
-        "copias de llaves",
-        "urgencias"
-      ],
-      ar:[
-        "فتح الأبواب",
-        "تغيير الأقفال",
-        "تركيب الأبواب المصفحة",
-        "نسخ المفاتيح",
-        "التدخلات المستعجلة"
-      ]
-    }
-  },
-
-  maconnerie:{
-    job:{
-      fr:"maçon",
-      es:"albañil",
-      ar:"بنّاء"
-    },
-    services:{
-      fr:[
-        "travaux de maçonnerie",
-        "murs et cloisons",
-        "réparation de fissures",
-        "dalle béton",
-        "petites constructions"
-      ],
-      es:[
-        "trabajos de albañilería",
-        "muros y tabiques",
-        "reparación de grietas",
-        "losa de hormigón",
-        "pequeñas construcciones"
-      ],
-      ar:[
-        "أشغال البناء",
-        "الجدران والفواصل",
-        "إصلاح الشقوق",
-        "الخرسانة",
-        "البناءات الصغيرة"
-      ]
-    }
-  },
-
-  electromenager:{
-    job:{
-      fr:"technicien électroménager",
-      es:"técnico de electrodomésticos",
-      ar:"تقني أجهزة منزلية"
-    },
-    services:{
-      fr:[
-        "réparation de réfrigérateurs",
-        "réparation de lave-linge",
-        "dépannage de fours",
-        "installation d'appareils",
-        "entretien"
-      ],
-      es:[
-        "reparación de frigoríficos",
-        "reparación de lavadoras",
-        "reparación de hornos",
-        "instalación de electrodomésticos",
-        "mantenimiento"
-      ],
-      ar:[
-        "إصلاح الثلاجات",
-        "إصلاح الغسالات",
-        "إصلاح الأفران",
-        "تركيب الأجهزة",
-        "الصيانة"
-      ]
-    }
-  },
-
-  jardinage:{
-    job:{
-      fr:"jardinier",
-      es:"jardinero",
-      ar:"بستاني"
-    },
-    services:{
-      fr:[
-        "entretien de jardins",
-        "tonte de pelouse",
-        "taille d'arbres",
-        "plantation",
-        "arrosage automatique"
-      ],
-      es:[
-        "mantenimiento de jardines",
-        "corte de césped",
-        "poda de árboles",
-        "plantación",
-        "riego automático"
-      ],
-      ar:[
-        "العناية بالحدائق",
-        "قص العشب",
-        "تقليم الأشجار",
-        "الغرس",
-        "الري التلقائي"
-      ]
-    }
-  },
-
-  piscine:{
-    job:{
-      fr:"spécialiste piscines",
-      es:"especialista en piscinas",
-      ar:"متخصص في المسابح"
-    },
-    services:{
-      fr:[
-        "entretien de piscines",
-        "traitement de l'eau",
-        "réparation de pompes",
-        "nettoyage de bassins",
-        "contrôle de filtration"
-      ],
-      es:[
-        "mantenimiento de piscinas",
-        "tratamiento del agua",
-        "reparación de bombas",
-        "limpieza de vasos",
-        "control de filtración"
-      ],
-      ar:[
-        "صيانة المسابح",
-        "معالجة المياه",
-        "إصلاح المضخات",
-        "تنظيف الأحواض",
-        "مراقبة نظام الترشيح"
-      ]
-    }
-  },
-
-  carrelage:{
-    job:{
-      fr:"carreleur",
-      es:"solador / alicatador",
-      ar:"زلايجي"
-    },
-    services:{
-      fr:[
-        "pose de carrelage",
-        "faïence murale",
-        "plinthes",
-        "rénovation de sols",
-        "joints et finitions"
-      ],
-      es:[
-        "colocación de baldosas",
-        "azulejos de pared",
-        "rodapiés",
-        "renovación de suelos",
-        "juntas y acabados"
-      ],
-      ar:[
-        "تركيب الزليج",
-        "القيشاني الجداري",
-        "الحواف",
-        "تجديد الأرضيات",
-        "التشطيبات"
-      ]
-    }
-  }
+default:{
+job:{
+fr:"professionnel",
+es:"profesional",
+ar:"محترف"
+},
+services:{
+fr:[
+"dépannage rapide",
+"installation",
+"entretien",
+"réparation",
+"conseils personnalisés"
+],
+es:[
+"reparaciones rápidas",
+"instalación",
+"mantenimiento",
+"soluciones a medida",
+"consejos personalizados"
+],
+ar:[
+"تدخلات سريعة",
+"تركيب",
+"صيانة",
+"إصلاح",
+"نصائح شخصية"
+]
+}
+},
+plomberie:{
+job:{
+fr:"plombier",
+es:"fontanero",
+ar:"سباك"
+},
+services:{
+fr:[
+"réparation de fuites d'eau",
+"débouchage",
+"installation sanitaire",
+"chauffe-eau",
+"robinetterie"
+],
+es:[
+"reparación de fugas de agua",
+"desatascos",
+"instalación sanitaria",
+"calentadores de agua",
+"grifería"
+],
+ar:[
+"إصلاح تسربات المياه",
+"تسريح القنوات",
+"تركيب الأدوات الصحية",
+"سخانات الماء",
+"الحنفيات"
+]
+}
+},
+electricite:{
+job:{
+fr:"électricien",
+es:"electricista",
+ar:"كهربائي"
+},
+services:{
+fr:[
+"dépannage électrique",
+"installation de tableaux",
+"éclairage",
+"prises et interrupteurs",
+"mise aux normes"
+],
+es:[
+"reparaciones eléctricas",
+"instalación de cuadros eléctricos",
+"iluminación",
+"enchufes e interruptores",
+"normalización de instalaciones"
+],
+ar:[
+"إصلاح الأعطال الكهربائية",
+"تركيب اللوحات الكهربائية",
+"الإضاءة",
+"المقابس والمفاتيح",
+"تحديث التوصيلات"
+]
+}
+},
+peinture:{
+job:{
+fr:"peintre",
+es:"pintor",
+ar:"صباغ"
+},
+services:{
+fr:[
+"peinture intérieure",
+"peinture extérieure",
+"enduits et finitions",
+"traitement de l'humidité",
+"décoration"
+],
+es:[
+"pintura interior",
+"pintura exterior",
+"enlucido y acabados",
+"tratamiento de humedad",
+"decoración"
+],
+ar:[
+"الصباغة الداخلية",
+"الصباغة الخارجية",
+"التشطيبات",
+"معالجة الرطوبة",
+"الديكور"
+]
+}
+},
+menage:{
+job:{
+fr:"professionnel du ménage",
+es:"profesional de limpieza",
+ar:"متخصص في التنظيف"
+},
+services:{
+fr:[
+"ménage à domicile",
+"nettoyage de bureaux",
+"nettoyage après travaux",
+"lavage de vitres",
+"repassage"
+],
+es:[
+"limpieza a domicilio",
+"limpieza de oficinas",
+"limpieza después de obras",
+"lavado de ventanas",
+"planchado"
+],
+ar:[
+"التنظيف المنزلي",
+"تنظيف المكاتب",
+"التنظيف بعد الأشغال",
+"غسل النوافذ",
+"الكي"
+]
+}
+},
+climatisation:{
+job:{
+fr:"technicien en climatisation",
+es:"técnico de climatización",
+ar:"تقني تكييف"
+},
+services:{
+fr:[
+"installation de climatiseurs",
+"entretien annuel",
+"recharge de gaz",
+"réparation de fuites",
+"nettoyage des filtres"
+],
+es:[
+"instalación de aires acondicionados",
+"mantenimiento anual",
+"recarga de gas",
+"reparación de fugas",
+"limpieza de filtros"
+],
+ar:[
+"تركيب المكيفات",
+"الصيانة السنوية",
+"شحن الغاز",
+"إصلاح التسربات",
+"تنظيف الفلاتر"
+]
+}
+},
+menuiserie:{
+job:{
+fr:"menuisier",
+es:"carpintero",
+ar:"نجار"
+},
+services:{
+fr:[
+"portes intérieures",
+"placards sur mesure",
+"meubles en bois",
+"réparation de meubles",
+"habillage mural"
+],
+es:[
+"puertas interiores",
+"armarios a medida",
+"muebles de madera",
+"reparación de muebles",
+"revestimientos murales"
+],
+ar:[
+"الأبواب الداخلية",
+"خزائن حسب الطلب",
+"أثاث خشبي",
+"إصلاح الأثاث",
+"تكسية الجدران"
+]
+}
+},
+serrurerie:{
+job:{
+fr:"serrurier",
+es:"cerrajero",
+ar:"صانع أقفال"
+},
+services:{
+fr:[
+"ouverture de portes",
+"changement de serrures",
+"installation de portes blindées",
+"duplicata de clés",
+"dépannage urgent"
+],
+es:[
+"apertura de puertas",
+"cambio de cerraduras",
+"instalación de puertas blindadas",
+"copias de llaves",
+"urgencias"
+],
+ar:[
+"فتح الأبواب",
+"تغيير الأقفال",
+"تركيب الأبواب المصفحة",
+"نسخ المفاتيح",
+"التدخلات المستعجلة"
+]
+}
+},
+maconnerie:{
+job:{
+fr:"maçon",
+es:"albañil",
+ar:"بنّاء"
+},
+services:{
+fr:[
+"travaux de maçonnerie",
+"murs et cloisons",
+"réparation de fissures",
+"dalle béton",
+"petites constructions"
+],
+es:[
+"trabajos de albañilería",
+"muros y tabiques",
+"reparación de grietas",
+"losa de hormigón",
+"pequeñas construcciones"
+],
+ar:[
+"أشغال البناء",
+"الجدران والفواصل",
+"إصلاح الشقوق",
+"الخرسانة",
+"البناءات الصغيرة"
+]
+}
+},
+electromenager:{
+job:{
+fr:"technicien électroménager",
+es:"técnico de electrodomésticos",
+ar:"تقني أجهزة منزلية"
+},
+services:{
+fr:[
+"réparation de réfrigérateurs",
+"réparation de lave-linge",
+"dépannage de fours",
+"installation d'appareils",
+"entretien"
+],
+es:[
+"reparación de frigoríficos",
+"reparación de lavadoras",
+"reparación de hornos",
+"instalación de electrodomésticos",
+"mantenimiento"
+],
+ar:[
+"إصلاح الثلاجات",
+"إصلاح الغسالات",
+"إصلاح الأفران",
+"تركيب الأجهزة",
+"الصيانة"
+]
+}
+},
+jardinage:{
+job:{
+fr:"jardinier",
+es:"jardinero",
+ar:"بستاني"
+},
+services:{
+fr:[
+"entretien de jardins",
+"tonte de pelouse",
+"taille d'arbres",
+"plantation",
+"arrosage automatique"
+],
+es:[
+"mantenimiento de jardines",
+"corte de césped",
+"poda de árboles",
+"plantación",
+"riego automático"
+],
+ar:[
+"العناية بالحدائق",
+"قص العشب",
+"تقليم الأشجار",
+"الغرس",
+"الري التلقائي"
+]
+}
+},
+piscine:{
+job:{
+fr:"spécialiste piscines",
+es:"especialista en piscinas",
+ar:"متخصص في المسابح"
+},
+services:{
+fr:[
+"entretien de piscines",
+"traitement de l'eau",
+"réparation de pompes",
+"nettoyage de bassins",
+"contrôle de filtration"
+],
+es:[
+"mantenimiento de piscinas",
+"tratamiento del agua",
+"reparación de bombas",
+"limpieza de vasos",
+"control de filtración"
+],
+ar:[
+"صيانة المسابح",
+"معالجة المياه",
+"إصلاح المضخات",
+"تنظيف الأحواض",
+"مراقبة نظام الترشيح"
+]
+}
+},
+carrelage:{
+job:{
+fr:"carreleur",
+es:"solador / alicatador",
+ar:"زلايجي"
+},
+services:{
+fr:[
+"pose de carrelage",
+"faïence murale",
+"plinthes",
+"rénovation de sols",
+"joints et finitions"
+],
+es:[
+"colocación de baldosas",
+"azulejos de pared",
+"rodapiés",
+"renovación de suelos",
+"juntas y acabados"
+],
+ar:[
+"تركيب الزليج",
+"القيشاني الجداري",
+"الحواف",
+"تجديد الأرضيات",
+"التشطيبات"
+]
+}
+}
 };
-
 const GEN_TEMPLATES = {
-  specialite:{
-    fr:[
-      "{name} – {job} à {city} : {services}",
-      "{job} à {city} – {services}",
-      "{cat} à {city} : {services}"
-    ],
-    es:[
-      "{name} – {job} en {city}: {services}",
-      "{job} en {city} – {services}",
-      "{cat} en {city}: {services}"
-    ],
-    ar:[
-      "{name} – {job} في {city}: {services}",
-      "{job} في {city} – {services}",
-      "{cat} في {city}: {services}"
-    ]
-  },
-
-  long:{
-    fr:[
-      "{name} propose des services de {cat} à {city} : {services}. Travail soigné, rapide et adapté à votre budget. Devis gratuit, contact direct et sans commission au Maroc.",
-      "{name} est votre {job} à {city}. Spécialiste de {services}, il intervient rapidement pour un travail propre, sérieux et garanti. Devis gratuit et contact direct sans commission.",
-      "Besoin d'un service de {cat} à {city} ? {name} prend en charge {services}. Intervention rapide, tarifs transparents et travail de qualité partout à {city} et alentours."
-    ],
-    es:[
-      "{name} ofrece servicios de {cat} en {city}: {services}. Trabajo cuidadoso, rápido y adaptado a tu presupuesto. Presupuesto gratuito, contacto directo y sin comisiones en Marruecos.",
-      "{name} es tu {job} en {city}. Especialista en {services}, ofrece un trabajo rápido, limpio y garantizado. Presupuesto gratuito y contacto directo sin comisiones.",
-      "¿Necesitas un servicio de {cat} en {city}? {name} se encarga de {services}. Intervención rápida, precios transparentes y trabajo de calidad en {city} y alrededores."
-    ],
-    ar:[
-      "{name} يقدم خدمات {cat} في {city}: {services}. عمل متقن وسريع ومناسب لميزانيتك، مع عرض سعر مجاني وتواصل مباشر وبدون عمولة في المغرب.",
-      "{name} هو {job} في {city}. متخصص في {services}، مع تدخل سريع وعمل نظيف ومضمون. عرض سعر مجاني وتواصل مباشر بدون عمولة.",
-      "هل تحتاج إلى خدمة {cat} في {city}؟ يتكفل {name} بـ {services}. تدخل سريع وأسعار واضحة وعمل عالي الجودة في {city} وما حولها."
-    ]
-  },
-
-  short:{
-    fr:[
-      "{job} à {city} : {services}. Devis gratuit.",
-      "{name} – {cat} à {city}. Devis gratuit et contact direct.",
-      "{cat} à {city} : {services}. Sans commission ni intermédiaire."
-    ],
-    es:[
-      "{job} en {city}: {services}. Presupuesto gratuito.",
-      "{name} – {cat} en {city}. Presupuesto gratuito y contacto directo.",
-      "{cat} en {city}: {services}. Sin comisiones ni intermediarios."
-    ],
-    ar:[
-      "{job} في {city}: {services}. عرض سعر مجاني.",
-      "{name} – {cat} في {city}. عرض سعر مجاني وتواصل مباشر.",
-      "{cat} في {city}: {services}. بدون عمولة أو وسيط."
-    ]
-  }
+specialite:{
+fr:[
+"{name} – {job} à {city} : {services}",
+"{job} à {city} – {services}",
+"{cat} à {city} : {services}"
+],
+es:[
+"{name} – {job} en {city}: {services}",
+"{job} en {city} – {services}",
+"{cat} en {city}: {services}"
+],
+ar:[
+"{name} – {job} في {city}: {services}",
+"{job} في {city} – {services}",
+"{cat} في {city}: {services}"
+]
+},
+long:{
+fr:[
+"{name} propose des services de {cat} à {city} : {services}. Travail soigné, rapide et adapté à votre budget. Devis gratuit, contact direct et sans commission au Maroc.",
+"{name} est votre {job} à {city}. Spécialiste de {services}, il intervient rapidement pour un travail propre, sérieux et garanti. Devis gratuit et contact direct sans commission.",
+"Besoin d'un service de {cat} à {city} ? {name} prend en charge {services}. Intervention rapide, tarifs transparents et travail de qualité partout à {city} et alentours."
+],
+es:[
+"{name} ofrece servicios de {cat} en {city}: {services}. Trabajo cuidadoso, rápido y adaptado a tu presupuesto. Presupuesto gratuito, contacto directo y sin comisiones en Marruecos.",
+"{name} es tu {job} en {city}. Especialista en {services}, ofrece un trabajo rápido, limpio y garantizado. Presupuesto gratuito y contacto directo sin comisiones.",
+"¿Necesitas un servicio de {cat} en {city}? {name} se encarga de {services}. Intervención rápida, precios transparentes y trabajo de calidad en {city} y alrededores."
+],
+ar:[
+"{name} يقدم خدمات {cat} في {city}: {services}. عمل متقن وسريع ومناسب لميزانيتك، مع عرض سعر مجاني وتواصل مباشر وبدون عمولة في المغرب.",
+"{name} هو {job} في {city}. متخصص في {services}، مع تدخل سريع وعمل نظيف ومضمون. عرض سعر مجاني وتواصل مباشر بدون عمولة.",
+"هل تحتاج إلى خدمة {cat} في {city}؟ يتكفل {name} بـ {services}. تدخل سريع وأسعار واضحة وعمل عالي الجودة في {city} وما حولها."
+]
+},
+short:{
+fr:[
+"{job} à {city} : {services}. Devis gratuit.",
+"{name} – {cat} à {city}. Devis gratuit et contact direct.",
+"{cat} à {city} : {services}. Sans commission ni intermédiaire."
+],
+es:[
+"{job} en {city}: {services}. Presupuesto gratuito.",
+"{name} – {cat} en {city}. Presupuesto gratuito y contacto directo.",
+"{cat} en {city}: {services}. Sin comisiones ni intermediarios."
+],
+ar:[
+"{job} في {city}: {services}. عرض سعر مجاني.",
+"{name} – {cat} في {city}. عرض سعر مجاني وتواصل مباشر.",
+"{cat} في {city}: {services}. بدون عمولة أو وسيط."
+]
+}
 };
 function capFirst(s){s=(s||"").trim();if(!s)return"";return s.charAt(0).toUpperCase()+s.slice(1)}
 function proSpecialtyShort(p){
@@ -2218,449 +2194,347 @@ const prep=currentLang==="fr"?" à ":(currentLang==="es"?" en ":" في ");
 return short+prep+city;
 }
 function genNormalize(str){
-  return (str || "").toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+return (str || "").toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g, "");
 }
-
 function genPick(arr){
-  if(!arr || !arr.length) return "";
-  return arr[Math.floor(Math.random() * arr.length)];
+if(!arr || !arr.length) return "";
+return arr[Math.floor(Math.random() * arr.length)];
 }
-
 function genShuffle(arr){
-  const copy = arr.slice();
-  for(let i = copy.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    const tmp = copy[i];
-    copy[i] = copy[j];
-    copy[j] = tmp;
-  }
-  return copy;
+const copy = arr.slice();
+for(let i = copy.length - 1; i > 0; i--){
+const j = Math.floor(Math.random() * (i + 1));
+const tmp = copy[i];
+copy[i] = copy[j];
+copy[j] = tmp;
 }
-
+return copy;
+}
 function genJoin(lang, arr){
-  if(!arr || !arr.length) return "";
-  if(arr.length === 1) return arr[0];
-
-  const last = arr[arr.length - 1];
-  const rest = arr.slice(0, -1);
-
-  if(lang === "fr"){
-    return rest.join(", ") + " et " + last;
-  }
-
-  if(lang === "es"){
-    return rest.join(", ") + " y " + last;
-  }
-
-  if(lang === "ar"){
-    return rest.join("، ") + " و" + last;
-  }
-
-  return arr.join(", ");
+if(!arr || !arr.length) return "";
+if(arr.length === 1) return arr[0];
+const last = arr[arr.length - 1];
+const rest = arr.slice(0, -1);
+if(lang === "fr"){
+return rest.join(", ") + " et " + last;
 }
-
+if(lang === "es"){
+return rest.join(", ") + " y " + last;
+}
+if(lang === "ar"){
+return rest.join("، ") + " و" + last;
+}
+return arr.join(", ");
+}
 function genFill(template, data){
-  return template.replace(/\{(\w+)\}/g, function(match, key){
-    return data[key] || "";
-  });
+return template.replace(/\{(\w+)\}/g, function(match, key){
+return data[key] || "";
+});
 }
-
 function genSet(id, value){
-  const el = document.getElementById(id);
-  if(!el) return;
-
-  el.value = value;
-
-  if(id.slice(-2) === "Ar"){
-    el.dir = "rtl";
-  }
-
-  el.dispatchEvent(new Event("input", {bubbles:true}));
-  el.dispatchEvent(new Event("change", {bubbles:true}));
+const el = document.getElementById(id);
+if(!el) return;
+el.value = value;
+if(id.slice(-2) === "Ar"){
+el.dir = "rtl";
 }
-
+el.dispatchEvent(new Event("input", {bubbles:true}));
+el.dispatchEvent(new Event("change", {bubbles:true}));
+}
 function genGetCategory(){
-  const id = document.getElementById("pfCategory").value;
-  const found = servicesData.find(s => s.id === id);
-
-  if(found){
-    return found;
-  }
-
-  return {
-    id:id,
-    name:{
-      fr:id,
-      es:id,
-      ar:id
-    }
-  };
+const id = document.getElementById("pfCategory").value;
+const found = servicesData.find(s => s.id === id);
+if(found){
+return found;
 }
-
+return {
+id:id,
+name:{
+fr:id,
+es:id,
+ar:id
+}
+};
+}
 function genGetCity(){
-  const idx = parseInt(document.getElementById("pfCity").value || "0", 10);
-  return citiesData[idx] || citiesData[0];
+const idx = parseInt(document.getElementById("pfCity").value || "0", 10);
+return citiesData[idx] || citiesData[0];
 }
-
 function genDetectCategoryKey(cat){
-  if(cat && cat.id && GEN_CATEGORY_CONTENT[cat.id]){
-    return cat.id;
-  }
-
-  const txt = genNormalize([
-    (cat && cat.name ? cat.name.fr : ""),
-    (cat && cat.name ? cat.name.es : ""),
-    (cat && cat.name ? cat.name.ar : "")
-  ].join(" "));
-
-  if(/plomb|fontan|سباك/.test(txt)) return "plomberie";
-  if(/elect|كهرب/.test(txt)) return "electricite";
-  if(/clim|air|تكييف/.test(txt)) return "climatisation";
-  if(/peint|pintur|صباغ|دهان/.test(txt)) return "peinture";
-  if(/menage|nettoy|limpieza|تنظيف/.test(txt)) return "menage";
-  if(/menuis|carpinter|نجار|خشب/.test(txt)) return "menuiserie";
-  if(/serrur|cerraj|قفل|مفاتيح/.test(txt)) return "serrurerie";
-  if(/macon|albañil|بناء/.test(txt)) return "maconnerie";
-  if(/electromenager|lavadora|ثلاجة|غسالة|أجهزة/.test(txt)) return "electromenager";
-  if(/jardin|حدائ|بستاني/.test(txt)) return "jardinage";
-  if(/piscin|مسبح/.test(txt)) return "piscine";
-  if(/carrel|baldos|زليج|بلاط/.test(txt)) return "carrelage";
-
-  return "default";
+if(cat && cat.id && GEN_CATEGORY_CONTENT[cat.id]){
+return cat.id;
 }
-
+const txt = genNormalize([
+(cat && cat.name ? cat.name.fr : ""),
+(cat && cat.name ? cat.name.es : ""),
+(cat && cat.name ? cat.name.ar : "")
+].join(" "));
+if(/plomb|fontan|سباك/.test(txt)) return "plomberie";
+if(/elect|كهرب/.test(txt)) return "electricite";
+if(/clim|air|تكييف/.test(txt)) return "climatisation";
+if(/peint|pintur|صباغ|دهان/.test(txt)) return "peinture";
+if(/menage|nettoy|limpieza|تنظيف/.test(txt)) return "menage";
+if(/menuis|carpinter|نجار|خشب/.test(txt)) return "menuiserie";
+if(/serrur|cerraj|قفل|مفاتيح/.test(txt)) return "serrurerie";
+if(/macon|albañil|بناء/.test(txt)) return "maconnerie";
+if(/electromenager|lavadora|ثلاجة|غسالة|أجهزة/.test(txt)) return "electromenager";
+if(/jardin|حدائ|بستاني/.test(txt)) return "jardinage";
+if(/piscin|مسبح/.test(txt)) return "piscine";
+if(/carrel|baldos|زليج|بلاط/.test(txt)) return "carrelage";
+return "default";
+}
 function generateProDescriptions(){
-  const name = document.getElementById("pfName").value.trim();
-  const category = genGetCategory();
-  const city = genGetCity();
-
-  const categoryKey = genDetectCategoryKey(category);
-  const content = GEN_CATEGORY_CONTENT[categoryKey] || GEN_CATEGORY_CONTENT.default;
-
-  const fallbackName = {
-    fr:"Ce professionnel",
-    es:"Este profesional",
-    ar:"هذا المحترف"
-  };
-
-  const langs = ["fr","es","ar"];
-
-  langs.forEach(function(lang){
-    const cap = lang.charAt(0).toUpperCase() + lang.slice(1);
-
-    const job = (content.job && content.job[lang]) ? content.job[lang] : GEN_CATEGORY_CONTENT.default.job[lang];
-    const servicesPool = (content.services && content.services[lang]) ? content.services[lang] : GEN_CATEGORY_CONTENT.default.services[lang];
-
-    const selectedServices = genShuffle(servicesPool).slice(0, 3 + Math.floor(Math.random() * 2));
-    const servicesText = genJoin(lang, selectedServices);
-
-    const data = {
-      name: name || fallbackName[lang],
-      city: city[lang] || "",
-      cat: (category && category.name ? category.name[lang] : ""),
-      job: job,
-      services: servicesText
-    };
-
-    genSet("pfSpec"+cap,capFirst((categoryKey!=="default")?job:((category&&category.name&&category.name[lang])||job)));
-    genSet("pfDesc" + cap, genFill(genPick(GEN_TEMPLATES.long[lang]), data));
-    genSet("pfShort" + cap, genFill(genPick(GEN_TEMPLATES.short[lang]), data));
-  });
-
-  showToast(t("ai_generated"));
+const name = document.getElementById("pfName").value.trim();
+const category = genGetCategory();
+const city = genGetCity();
+const categoryKey = genDetectCategoryKey(category);
+const content = GEN_CATEGORY_CONTENT[categoryKey] || GEN_CATEGORY_CONTENT.default;
+const fallbackName = {
+fr:"Ce professionnel",
+es:"Este profesional",
+ar:"هذا المحترف"
+};
+const langs = ["fr","es","ar"];
+langs.forEach(function(lang){
+const cap = lang.charAt(0).toUpperCase() + lang.slice(1);
+const job = (content.job && content.job[lang]) ? content.job[lang] : GEN_CATEGORY_CONTENT.default.job[lang];
+const servicesPool = (content.services && content.services[lang]) ? content.services[lang] : GEN_CATEGORY_CONTENT.default.services[lang];
+const selectedServices = genShuffle(servicesPool).slice(0, 3 + Math.floor(Math.random() * 2));
+const servicesText = genJoin(lang, selectedServices);
+const data = {
+name: name || fallbackName[lang],
+city: city[lang] || "",
+cat: (category && category.name ? category.name[lang] : ""),
+job: job,
+services: servicesText
+};
+genSet("pfSpec"+cap,capFirst((categoryKey!=="default")?job:((category&&category.name&&category.name[lang])||job)));
+genSet("pfDesc" + cap, genFill(genPick(GEN_TEMPLATES.long[lang]), data));
+genSet("pfShort" + cap, genFill(genPick(GEN_TEMPLATES.short[lang]), data));
+});
+showToast(t("ai_generated"));
 }
-
 window.generateProDescriptions = generateProDescriptions;
-
 /* ===============================
-   HORARIOS
+HORARIOS
 ================================ */
-
 function scheduleEnabledEl(){
-  return document.getElementById("pfScheduleEnabled");
+return document.getElementById("pfScheduleEnabled");
 }
-
 function schedule24El(){
-  return document.getElementById("pfSchedule24");
+return document.getElementById("pfSchedule24");
 }
-
 function scheduleRowsEl(){
-  return document.getElementById("pfScheduleRows");
+return document.getElementById("pfScheduleRows");
 }
-
 function schedule24WrapEl(){
-  return document.getElementById("pfSchedule24Wrap");
+return document.getElementById("pfSchedule24Wrap");
 }
-
 function readScheduleInputs(){
-  const wrap = scheduleRowsEl();
-  const open24 = schedule24El();
-
-  if(!wrap){
-    return {open24:false, days:{}};
-  }
-
-  if(open24 && open24.checked){
-    return {open24:true, days:{}};
-  }
-
-  const days = {};
-
-  wrap.querySelectorAll(".schedule-day").forEach(function(row){
-    const day = row.dataset.day;
-    const closed = row.querySelector(".sched-closed");
-    const open = row.querySelector(".sched-open");
-    const close = row.querySelector(".sched-close");
-
-    days[day] = {
-      closed: closed ? closed.checked : false,
-      open: open ? open.value : "",
-      close: close ? close.value : ""
-    };
-  });
-
-  return {
-    open24:false,
-    days:days
-  };
+const wrap = scheduleRowsEl();
+const open24 = schedule24El();
+if(!wrap){
+return {open24:false, days:{}};
 }
-
+if(open24 && open24.checked){
+return {open24:true, days:{}};
+}
+const days = {};
+wrap.querySelectorAll(".schedule-day").forEach(function(row){
+const day = row.dataset.day;
+const closed = row.querySelector(".sched-closed");
+const open = row.querySelector(".sched-open");
+const close = row.querySelector(".sched-close");
+days[day] = {
+closed: closed ? closed.checked : false,
+open: open ? open.value : "",
+close: close ? close.value : ""
+};
+});
+return {
+open24:false,
+days:days
+};
+}
 function renderScheduleEditor(data){
-  const wrap = scheduleRowsEl();
-  if(!wrap) return;
-
-  const lang = window.currentLang || "fr";
-  const source = data || readScheduleInputs();
-  const open24 = schedule24El();
-
-  if(open24){
-    open24.checked = !!source.open24;
-  }
-
-  wrap.innerHTML = "";
-
-  SCHEDULE_DAY_KEYS.forEach(function(day){
-    const d = (source.days && source.days[day]) ? source.days[day] : null;
-
-    const closedDefault = (day === "sun");
-    const closedValue = d ? !!d.closed : closedDefault;
-    const openValue = (d && d.open) ? d.open : "09:00";
-    const closeValue = (d && d.close) ? d.close : "18:00";
-
-    const row = document.createElement("div");
-    row.className = "schedule-day";
-    row.dataset.day = day;
-
-    row.innerHTML = `
-      <label>${SCHEDULE_DAY_LABELS[lang][day]}</label>
-
-      <label class="schedule-closed">
-        <input type="checkbox" class="sched-closed" ${closedValue ? "checked" : ""}>
-        ${t("schedule_closed")}
-      </label>
-
-      <input type="time" class="sched-open" value="${openValue}">
-      <input type="time" class="sched-close" value="${closeValue}">
-    `;
-
-    wrap.appendChild(row);
-
-    const closedInput = row.querySelector(".sched-closed");
-    const openInput = row.querySelector(".sched-open");
-    const closeInput = row.querySelector(".sched-close");
-
-    closedInput.addEventListener("change", function(){
-      openInput.disabled = closedInput.checked;
-      closeInput.disabled = closedInput.checked;
-    });
-
-    openInput.disabled = closedInput.checked;
-    closeInput.disabled = closedInput.checked;
-  });
-
-  toggleSchedule24();
+const wrap = scheduleRowsEl();
+if(!wrap) return;
+const lang = window.currentLang || "fr";
+const source = data || readScheduleInputs();
+const open24 = schedule24El();
+if(open24){
+open24.checked = !!source.open24;
 }
-
+wrap.innerHTML = "";
+SCHEDULE_DAY_KEYS.forEach(function(day){
+const d = (source.days && source.days[day]) ? source.days[day] : null;
+const closedDefault = (day === "sun");
+const closedValue = d ? !!d.closed : closedDefault;
+const openValue = (d && d.open) ? d.open : "09:00";
+const closeValue = (d && d.close) ? d.close : "18:00";
+const row = document.createElement("div");
+row.className = "schedule-day";
+row.dataset.day = day;
+row.innerHTML = `
+<label>${SCHEDULE_DAY_LABELS[lang][day]}</label>
+<label class="schedule-closed">
+<input type="checkbox" class="sched-closed" ${closedValue ? "checked" : ""}>
+${t("schedule_closed")}
+</label>
+<input type="time" class="sched-open" value="${openValue}">
+<input type="time" class="sched-close" value="${closeValue}">
+`;
+wrap.appendChild(row);
+const closedInput = row.querySelector(".sched-closed");
+const openInput = row.querySelector(".sched-open");
+const closeInput = row.querySelector(".sched-close");
+closedInput.addEventListener("change", function(){
+openInput.disabled = closedInput.checked;
+closeInput.disabled = closedInput.checked;
+});
+openInput.disabled = closedInput.checked;
+closeInput.disabled = closedInput.checked;
+});
+toggleSchedule24();
+}
 function toggleSchedule24(){
-  const open24 = schedule24El();
-  const wrap = scheduleRowsEl();
-
-  if(!open24 || !wrap) return;
-
-  if(open24.checked){
-    wrap.querySelectorAll("input").forEach(function(input){
-      input.disabled = true;
-    });
-  }else{
-    wrap.querySelectorAll(".schedule-day").forEach(function(row){
-      const closed = row.querySelector(".sched-closed");
-      const open = row.querySelector(".sched-open");
-      const close = row.querySelector(".sched-close");
-
-      if(open) open.disabled = closed ? closed.checked : false;
-      if(close) close.disabled = closed ? closed.checked : false;
-    });
-  }
+const open24 = schedule24El();
+const wrap = scheduleRowsEl();
+if(!open24 || !wrap) return;
+if(open24.checked){
+wrap.querySelectorAll("input").forEach(function(input){
+input.disabled = true;
+});
+}else{
+wrap.querySelectorAll(".schedule-day").forEach(function(row){
+const closed = row.querySelector(".sched-closed");
+const open = row.querySelector(".sched-open");
+const close = row.querySelector(".sched-close");
+if(open) open.disabled = closed ? closed.checked : false;
+if(close) close.disabled = closed ? closed.checked : false;
+});
 }
-
+}
 window.toggleSchedule24 = toggleSchedule24;
-
 function toggleScheduleUI(){
-  const enabled = scheduleEnabledEl();
-  const rows = scheduleRowsEl();
-  const wrap24 = schedule24WrapEl();
-
-  if(!enabled || !rows) return;
-
-  if(enabled.checked){
-    rows.style.display = "block";
-    if(wrap24) wrap24.style.display = "flex";
-    renderScheduleEditor(readScheduleInputs());
-  }else{
-    rows.style.display = "none";
-    if(wrap24) wrap24.style.display = "none";
-  }
+const enabled = scheduleEnabledEl();
+const rows = scheduleRowsEl();
+const wrap24 = schedule24WrapEl();
+if(!enabled || !rows) return;
+if(enabled.checked){
+rows.style.display = "block";
+if(wrap24) wrap24.style.display = "flex";
+renderScheduleEditor(readScheduleInputs());
+}else{
+rows.style.display = "none";
+if(wrap24) wrap24.style.display = "none";
 }
-
+}
 window.toggleScheduleUI = toggleScheduleUI;
-
 function getScheduleData(){
-  const enabled = scheduleEnabledEl();
-
-  if(!enabled || !enabled.checked){
-    return null;
-  }
-
-  const open24 = schedule24El();
-
-  if(open24 && open24.checked){
-    return {open24:true};
-  }
-
-  const wrap = scheduleRowsEl();
-  const days = {};
-
-  if(wrap){
-    wrap.querySelectorAll(".schedule-day").forEach(function(row){
-      const day = row.dataset.day;
-      const closed = row.querySelector(".sched-closed");
-      const open = row.querySelector(".sched-open");
-      const close = row.querySelector(".sched-close");
-
-      days[day] = {
-        closed: closed ? closed.checked : false,
-        open: open ? open.value : "",
-        close: close ? close.value : ""
-      };
-    });
-  }
-
-  return {
-    open24:false,
-    days:days
-  };
+const enabled = scheduleEnabledEl();
+if(!enabled || !enabled.checked){
+return null;
 }
-
+const open24 = schedule24El();
+if(open24 && open24.checked){
+return {open24:true};
+}
+const wrap = scheduleRowsEl();
+const days = {};
+if(wrap){
+wrap.querySelectorAll(".schedule-day").forEach(function(row){
+const day = row.dataset.day;
+const closed = row.querySelector(".sched-closed");
+const open = row.querySelector(".sched-open");
+const close = row.querySelector(".sched-close");
+days[day] = {
+closed: closed ? closed.checked : false,
+open: open ? open.value : "",
+close: close ? close.value : ""
+};
+});
+}
+return {
+open24:false,
+days:days
+};
+}
 window.getScheduleData = getScheduleData;
-
 function loadScheduleData(schedule){
-  const enabled = scheduleEnabledEl();
-  if(!enabled) return;
-
-  if(!schedule){
-    enabled.checked = false;
-    toggleScheduleUI();
-    return;
-  }
-
-  enabled.checked = true;
-  toggleScheduleUI();
-
-  const open24 = schedule24El();
-
-  if(schedule.open24){
-    if(open24) open24.checked = true;
-    renderScheduleEditor({open24:true, days:{}});
-  }else{
-    if(open24) open24.checked = false;
-    renderScheduleEditor({open24:false, days:schedule.days || {}});
-  }
-
-  toggleSchedule24();
+const enabled = scheduleEnabledEl();
+if(!enabled) return;
+if(!schedule){
+enabled.checked = false;
+toggleScheduleUI();
+return;
 }
-
+enabled.checked = true;
+toggleScheduleUI();
+const open24 = schedule24El();
+if(schedule.open24){
+if(open24) open24.checked = true;
+renderScheduleEditor({open24:true, days:{}});
+}else{
+if(open24) open24.checked = false;
+renderScheduleEditor({open24:false, days:schedule.days || {}});
+}
+toggleSchedule24();
+}
 window.loadScheduleData = loadScheduleData;
-
 function renderPublicSchedule(schedule){
-  const section = document.getElementById("ppScheduleSection");
-  const box = document.getElementById("ppSchedule");
-
-  if(!section || !box) return;
-
-  if(!schedule){
-    section.style.display = "none";
-    box.innerHTML = "";
-    return;
-  }
-
-  section.style.display = "block";
-
-  if(schedule.open24){
-    box.innerHTML = '<div class="schedule-public-open">🕒 24/7</div>';
-    return;
-  }
-
-  const lang = window.currentLang || "fr";
-  let html = "";
-
-  SCHEDULE_DAY_KEYS.forEach(function(day){
-    const d = (schedule.days && schedule.days[day]) ? schedule.days[day] : null;
-
-    let value = "—";
-
-    if(d && d.closed){
-      value = t("schedule_closed");
-    }else if(d && d.open && d.close){
-      value = d.open + " - " + d.close;
-    }
-
-    html += `
-      <div class="schedule-public-day">
-        <span>${SCHEDULE_DAY_LABELS[lang][day]}</span>
-        <strong>${value}</strong>
-      </div>
-    `;
-  });
-
-  box.innerHTML = html;
+const section = document.getElementById("ppScheduleSection");
+const box = document.getElementById("ppSchedule");
+if(!section || !box) return;
+if(!schedule){
+section.style.display = "none";
+box.innerHTML = "";
+return;
 }
-
+section.style.display = "block";
+if(schedule.open24){
+box.innerHTML = '<div class="schedule-public-open">🕒 24/7</div>';
+return;
+}
+const lang = window.currentLang || "fr";
+let html = "";
+SCHEDULE_DAY_KEYS.forEach(function(day){
+const d = (schedule.days && schedule.days[day]) ? schedule.days[day] : null;
+let value = "—";
+if(d && d.closed){
+value = t("schedule_closed");
+}else if(d && d.open && d.close){
+value = d.open + " - " + d.close;
+}
+html += `
+<div class="schedule-public-day">
+<span>${SCHEDULE_DAY_LABELS[lang][day]}</span>
+<strong>${value}</strong>
+</div>
+`;
+});
+box.innerHTML = html;
+}
 window.renderPublicSchedule = renderPublicSchedule;
-
 function renderProfileSchedule(pro){
-  const schedule = (pro && pro.schedule) ? pro.schedule : ((pro && pro.links && pro.links.schedule) ? pro.links.schedule : null);
-  renderPublicSchedule(schedule);
+const schedule = (pro && pro.schedule) ? pro.schedule : ((pro && pro.links && pro.links.schedule) ? pro.links.schedule : null);
+renderPublicSchedule(schedule);
 }
-
 window.renderProfileSchedule = renderProfileSchedule;
-
 function refreshScheduleEditorLanguage(){
-  const enabled = scheduleEnabledEl();
-  if(enabled && enabled.checked){
-    renderScheduleEditor(readScheduleInputs());
-  }
+const enabled = scheduleEnabledEl();
+if(enabled && enabled.checked){
+renderScheduleEditor(readScheduleInputs());
 }
-
+}
 window.refreshScheduleEditorLanguage = refreshScheduleEditorLanguage;
-
 if(document.getElementById("pfScheduleEnabled")){
-  toggleScheduleUI();
+toggleScheduleUI();
 }
-
 function closeCookieBanner(){localStorage.setItem("propro_cookies","1");localStorage.setItem("clickpubli_cookies","1");const b=document.getElementById("cookieBanner");if(b)b.remove()}
-function showCookieBanner(){if(localStorage.getItem("propro_cookies")||localStorage.getItem("clickpubli_cookies"))return;const d=document.createElement("div");d.id="cookieBanner";d.style.cssText="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:400;flex-wrap:wrap";d.innerHTML=`<p style="font-size:.9rem;color:var(--gray)">Ce site utilise des cookies pour améliorer votre expérience. <a href="#" style="color:var(--primary);font-weight:600">En savoir plus</a></p><div style="display:flex;gap:.6rem"><button style="padding:.6rem 1.2rem;border-radius:10px;border:none;cursor:pointer;background:#e2e8f0;color:#0f172a;font-weight:600" onclick="closeCookieBanner()">Refuser</button><button style="padding:.6rem 1.2rem;border-radius:10px;border:none;cursor:pointer;background:var(--primary);color:#fff;font-weight:600" onclick="closeCookieBanner()">Accepter</button></div>`;document.body.appendChild(d)}
+function showCookieBanner(){if(localStorage.getItem("propro_cookies")||localStorage.getItem("clickpubli_cookies"))return;const b=document.getElementById("cookieBanner");if(b)b.classList.add("show")}
 function handleInscriptionProHash(){
 if(location.hash==="#inscription-pro"){
 setTimeout(function(){try{openAuthAsPro();}catch(e){console.warn(e);}},700);
