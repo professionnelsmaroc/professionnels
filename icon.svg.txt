@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0f766e"/><text x="32" y="44" font-family="Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="middle" fill="#ffffff">P</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#0E6B5C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="8">
+    <path d="M138 198 L256 127 L376 198"/>
+    <path d="M138 198 L138 174 L174 174"/>
+    <path d="M376 198 L376 174 L340 174"/>
+    <path d="M210 174 L340 174"/>
+    <path d="M174 174 L174 307"/>
+    <path d="M210 174 L210 307 L235 307 L235 248 L279 248 L279 307 L343 307 L343 199"/>
+  </g>
+  <text x="256" y="364" text-anchor="middle" font-family="Poppins, Montserrat, Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="0.5" fill="#FFFFFF">PROFESSIONNELS</text>
+  <text x="256" y="386" text-anchor="middle" font-family="Poppins, Montserrat, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="9" fill="#FFFFFF">MAROC</text>
+</svg>
