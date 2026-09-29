@@ -9,14 +9,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Professionnels Maroc — Services à domicile au Maroc">
 <meta property="og:description" content="Contactez directement des artisans vérifiés au Maroc. Sans commission, sans intermédiaire. Devis gratuits en quelques clics.">
-<meta property="og:image" content="https://professionnelsmaroc.click/icon.svg">
+<meta property="og:image" content="https://professionnelsmaroc.click/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta property="og:url" content="https://professionnelsmaroc.click/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Professionnels Maroc — Services à domicile au Maroc">
 <meta name="twitter:description" content="Artisans vérifiés au Maroc, contact direct sans commission.">
-<meta name="twitter:image" content="https://professionnelsmaroc.click/icon.svg">
+<meta name="twitter:image" content="https://professionnelsmaroc.click/icon-512.png">
 <meta name="theme-color" content="#0E6B5C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.webmanifest">
@@ -246,6 +246,12 @@ section{padding:4.5rem 0;scroll-margin-top:80px}
 .pro-photo-thumb{position:relative;width:80px;height:80px;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
 .pro-photo-thumb img{width:100%;height:100%;object-fit:cover}
 .pro-photo-del{position:absolute;top:2px;right:2px;background:rgba(0,0,0,.6);color:white;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:.7rem}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.6rem;margin-top:.4rem}
+.lib-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid transparent;cursor:pointer;background:var(--light-gray)}
+.lib-item img{width:100%;height:100%;object-fit:cover}
+.lib-item.sel{border-color:var(--primary)}
+.lib-item .lib-check{position:absolute;top:4px;right:4px;background:var(--primary);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;display:flex;align-items:center;justify-content:center}
+.lib-del{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:.7rem}
 .pro-svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.5rem}
 .pro-svc-item{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;background:white}
 .pro-svc-item.checked{border-color:var(--primary);background:#f0fdfa}
@@ -680,6 +686,9 @@ a.appendChild(r);
 <div style="display:flex;gap:.6rem;flex-wrap:wrap"><button class="btn-primary" onclick="loadSampleToDB()">📥 <span data-i18n="admin_load_samples">Charger les exemples</span></button><button class="btn-primary" onclick="openProForm()">➕ <span data-i18n="admin_add_pro">Ajouter</span></button></div></div>
 <div id="adminProList"></div>
 <h3 class="admin-subtitle" data-i18n="admin_svc_images">Images des services</h3><div id="svcMediaList"></div>
+<h3 class="admin-subtitle" data-i18n="admin_lib_title">Bibliothèque d'images par catégorie</h3>
+<div class="svc-media-row"><select id="libCatSelect" onchange="renderLibraryAdmin()" style="flex:1;padding:.6rem;border-radius:10px;border:1.5px solid var(--border);font-family:inherit"></select><input type="file" accept="image/*" multiple id="libUploadInput" style="font-size:.8rem;flex:1"></div>
+<div id="libAdminGrid" class="lib-grid"></div>
 <h3 class="admin-subtitle" data-i18n="admin_svc_categories">Catégories de services</h3>
 <div style="margin-bottom:.8rem"><button class="btn-primary" onclick="openServiceForm()">➕ <span data-i18n="admin_add_category">Ajouter une catégorie</span></button></div>
 <div id="svcCategoriesList"></div>
@@ -693,7 +702,7 @@ a.appendChild(r);
 <div class="contact-grid">
 <div class="contact-card"><div class="c-icon">📞</div><h3 data-i18n="contact_phone">Téléphone</h3><a href="tel:+212670964030">+212 6 70 96 40 30</a></div>
 <div class="contact-card"><div class="c-icon">📧</div><h3 data-i18n="contact_email">Email</h3><a href="mailto:contact@professionnelsmaroc.click">contact@professionnelsmaroc.click</a></div>
-<div class="contact-card"><div class="c-icon">💬</div><h3>WhatsApp</h3><a href="https://wa.me/212670964030" target="_blank">+212 6 70 96 40 30</a></div>
+<div class="contact-card"><div class="c-icon">💬</div><h3>WhatsApp</h3><a href="https://wa.me/670964030" target="_blank">+212 6 70 96 40 30</a></div>
 <div class="contact-card"><div class="c-icon">📍</div><h3 data-i18n="footer_location">Maroc</h3><a data-i18n="contact_city">Maroc</a></div>
 </div>
 <div class="contact-form">
@@ -856,6 +865,7 @@ a.appendChild(r);
 </div>
 </div>
 <div class="form-group full"><label data-i18n="field_my_services">Services que je propose</label><div class="pro-svc-grid" id="proSvcGrid"></div><div class="pro-svc-imgs" id="proSvcImgs"></div></div>
+<div class="form-group full"><label>📚 <span data-i18n="lib_title">Bibliothèque d'images de votre métier</span></label><p style="font-size:.82rem;color:var(--gray);margin-bottom:.6rem" data-i18n="lib_hint">Touchez les images à ajouter à votre fiche (6 max).</p><div id="libGrid" class="lib-grid"></div></div>
 <div class="form-group full" id="proPhotosSection" style="display:none"><label data-i18n="field_photos">Photos de vos travaux</label><div id="proPhotosList" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem"></div><input type="file" id="proPhotoInput" accept="image/*" multiple style="font-size:.85rem"></div>
 </div>
 <button type="submit" class="btn-submit" data-i18n="profile_save">Enregistrer</button>
@@ -972,7 +982,7 @@ profile_edit:"Editar",profile_save:"Guardar",profile_member_since:"Miembro desde
 favorites:"Favoritos",favorites_empty:"Aún no tienes favoritos. Haz clic en ♡ para añadir.",favorites_added:"Añadido a favoritos ❤",favorites_removed:"Eliminado de favoritos",favorites_login_required:"Inicia sesión para añadir favoritos",favorites_show:"Ver mis favoritos",
 reviews_title:"Reseñas de clientes",reviews_none:"Aún no hay reseñas. ¡Sé el primero!",reviews_placeholder:"Comparte tu experiencia...",reviews_submit:"Publicar reseña",reviews_login_required:"Inicia sesión para dejar una reseña.",reviews_success:"¡Gracias por tu reseña!",reviews_select_rating:"Por favor elige una puntuación",reviews_empty_comment:"Por favor escribe un comentario",
 admin_title:"Administración",admin_add_pro:"Añadir profesional",admin_edit_pro:"Editar profesional",admin_delete_confirm:"¿Eliminar este profesional?",admin_saved:"Guardado",admin_deleted:"Eliminado",admin_name_required:"Nombre requerido",admin_no_access:"Acceso reservado a administradores",admin_load_samples:"Cargar ejemplos",admin_svc_images:"Imágenes de servicios",admin_svc_categories:"Categorías de servicios",admin_add_category:"Añadir categoría",admin_edit_category:"Editar categoría",
-field_category:"Categoría",field_rating:"Nota",field_specialty:"Especialidad",field_description:"Descripción",field_pro_photo:"Foto del profesional",field_pro_cover:"Foto de cabecera",field_photos:"Fotos de tus trabajos",field_my_services:"Servicios que ofrezco",field_website:"Sitio web (opcional)",install_app:"Instalar app",
+field_category:"Categoría",field_rating:"Nota",field_specialty:"Especialidad",field_description:"Descripción",field_pro_photo:"Foto del profesional",field_pro_cover:"Imagen de cabecera",field_photos:"Fotos de tus trabajos",field_my_services:"Servicios que ofrezco",field_website:"Sitio web (opcional)",install_app:"Instalar app",
 my_pro_card:"Mi ficha profesional",pro_only:"Solo para profesionales",create_pro_card:"Crear mi ficha profesional",
 faq_title:"Preguntas frecuentes",
 quote_title:"Pedir presupuesto",quote_subtitle:"El mensaje se enviará por WhatsApp al profesional.",quote_name:"Tu nombre",quote_phone:"Tu teléfono",quote_desc:"Describe tu necesidad",quote_send:"Enviar por WhatsApp",
@@ -1139,7 +1149,7 @@ p11:{fr:"Peintre à Casablanca pour appartements, villas et locaux : peinture in
 p12:{fr:"Peintre à Agadir spécialisé en façades et peinture extérieure résistante au climat côtier, avec produits de qualité et rendu propre et durable.",es:"Pintor en Agadir especializado en fachadas y pintura exterior resistente al clima costero, con productos de calidad y resultado limpio y duradero.",ar:"صباغ في أكادير متخصص في الواجهات والصباغة الخارجية المقاومة للمناخ الساحلي، بمنتجات جودة ونتيجة نظيفة ودائمة."},
 p13:{fr:"Femme de ménage professionnelle à Casablanca : entretien complet du domicile, vitres, repassage et nettoyage profond, avec discrétion et minutie reconnues.",es:"Mujer de limpieza profesional en Casablanca: mantenimiento completo del hogar, cristales, planchado y limpieza profunda, con discreción y minuciosidad reconocidas.",ar:"عاملة تنظيف محترفة في الدار البيضاء: عناية كاملة بالمنزل والزجاج والكي والتنظيف العميق، مع كتومة ودقة معهودتين."},
 p14:{fr:"Service de ménage à Rabat pour maisons, appartements et bureaux : nettoyage régulier ou saisonnier, vitres et repassage inclus, organisé avec méthode.",es:"Servicio de limpieza en Rabat para casas, pisos y oficinas: limpieza regular o de temporada, cristales y planchado incluidos, organizado con método.",ar:"خدمة تنظيف في الرباط للمنازل والشقق والمكاتب: تنظيف دوري أو موسمي يشمل الزجاج والكي، بمنهجية منظمة."},
-p15:{fr:"Technicien en climatisation à Casablanca : installation de splits, entretien annuel et réparation de fugas de gaz toutes marques, avec pièces garanties.",es:"Técnico de climatización en Casablanca: instalación de splits, mantenimiento anual y reparación de fugas de gas de todas las marcas, con piezas garantizadas.",ar:"تقني تكييف في الدار البيضاء: تركيب سبليت وصيانة سنوية وإصلاح تسريبات الغاز لجميع العلامات، بقطع مضمونة."},
+p15:{fr:"Technicien en climatisation à Casablanca : installation de splits, entretien annuel et réparation de fuites de gaz toutes marques, avec pièces garanties.",es:"Técnico de climatización en Casablanca: instalación de splits, mantenimiento anual y reparación de fugas de gas de todas las marcas, con piezas garantizadas.",ar:"تقني تكييف في الدار البيضاء: تركيب سبليت وصيانة سنوية وإصلاح تسريبات الغاز لجميع العلامات، بقطع مضمونة."},
 p16:{fr:"Spécialiste climatisation à Marrakech : installation, recharge de gaz et entretien complet du split au gainable, pour un froid performant et économe.",es:"Especialista en climatización en Marrakech: instalación, recarga de gas y mantenimiento completo del split al conducto, para un frío eficiente y de bajo consumo.",ar:"متخصص تكييف في مراكش: تركيب وتعبئة غاز وصيانة شاملة من السبليت إلى المركزي، لتبريد فعال ومقتصد."},
 p17:{fr:"Menuisier à Fès, artisan du bois depuis plus de quinze ans : salons marocains sculptés, portes traditionnelles et placards sur mesure, pose soignée.",es:"Carpintero en Fez, artesano de la madera desde hace más de quince años: salones marroquíes tallados, puertas tradicionales y armarios a medida, colocación cuidada.",ar:"نجار في فاس، حرفي الخشب منذ أكثر من خمسة عشر عاماً: صالونات مغربية منقوشة وأبواب تقليدية وخزائن حسب الطلب، بتركيب متقن."},
 p18:{fr:"Menuisier à Casablanca pour agencements modernes : dressings, bureaux, cuisines fonctionnelles et réparations rapides, avec mesures à domicile et plans clairs.",es:"Carpintero en Casablanca para equipamientos modernos: vestidores, escritorios, cocinas funcionales y reparaciones rápidas, con medidas a domicilio y planos claros.",ar:"نجار في الدار البيضاء للتجهيزات العصرية: غرف ملابس ومكاتب ومطابخ عملية وإصلاحات سريعة، مع قياسات في المنزل وتصاميم واضحة."},
@@ -1157,7 +1167,7 @@ p29:{fr:"Jardinier à Essaouira habitué aux jardins exposés au vent marin : en
 p30:{fr:"Jardinier à Agadir pour création et entretien de jardins : gazon naturel ou synthétique, plantation adaptée à la chaleur et entretien mensuel abordable.",es:"Jardinero en Agadir para creación y mantenimiento de jardines: césped natural o artificial, plantación adaptada al calor y mantenimiento mensual asequible.",ar:"بستاني في أكادير لإنشاء الحدائق والعناية بها: عشب طبيعي أو اصطناعي، غرس ملائم للحرارة وعناية شهرية في المتناول."}
 };
 const sampleAvatars=["men/32","men/45","women/44","men/75","women/65","men/22","men/51","men/63","men/85","men/12","men/41","men/76","women/21","women/68","men/58","men/36","men/91","men/15","men/67","men/29","men/83","men/47","men/54","men/71","women/33","women/57","women/12","men/94","men/38","men/61"];
-const sampleRaw=[["p1","Mohammed El Amrani","👨","plomberie",0,4.9,127,"+212 6 70 96 40 30","212670964030"],["p2","Youssef Benali","👨","electricite",1,4.8,98,"+212 6 70 96 40 30","212670964030"],["p3","Fatima Zahra","👩","menage",2,5.0,156,"+212 6 70 96 40 30","212670964030"],["p4","Hassan Idrissi","👨🎨","peinture",3,4.9,84,"+212 6 70 96 40 30","212670964030"],["p5","Amina Berrada","👩","climatisation",4,4.7,73,"+212 6 70 96 40 30","212670964030"],["p6","Rachid Ouazzani","🧔","menuiserie",5,4.8,65,"+212 6 70 96 40 30","212670964030"],["p7","Khalid Tazi","👨","plomberie",1,4.7,88,"+212 6 70 96 40 30","212670964030"],["p8","Omar Cherkaoui","👨‍🔧","plomberie",2,4.6,64,"+212 6 70 96 40 30","212670964030"],["p9","Reda Alami","👨","electricite",0,4.8,102,"+212 6 70 96 40 30","212670964030"],["p10","Nabil Fassi","👨","electricite",3,4.6,57,"+212 6 70 96 40 30","212670964030"],["p11","Said Bennis","👨","peinture",0,4.7,91,"+212 6 70 96 40 30","212670964030"],["p12","Adil Hamdaoui","👨","peinture",5,4.5,46,"+212 6 70 96 40 30","212670964030"],["p13","Khadija Amrani","👩","menage",0,4.9,143,"+212 6 70 96 40 30","212670964030"],["p14","Salma Berrada","👩","menage",1,4.7,78,"+212 6 70 96 40 30","212670964030"],["p15","Hamid Ouazzani","👨‍🔧","climatisation",0,4.6,69,"+212 6 70 96 40 30","212670964030"],["p16","Karim Idrissi","👨","climatisation",2,4.7,83,"+212 6 70 96 40 30","212670964030"],["p17","Mustafa Tazi","🧔","menuiserie",4,4.8,72,"+212 6 70 96 40 30","212670964030"],["p18","Jamal Fassi","🧔","menuiserie",0,4.6,59,"+212 6 70 96 40 30","212670964030"],["p19","Abdellah Cherkaoui","👨","serrurerie",0,4.7,95,"+212 6 70 96 40 30","212670964030"],["p20","Hicham Alami","👨","serrurerie",1,4.6,61,"+212 6 70 96 40 30","212670964030"],["p21","Tarik Bennis","👨‍","serrurerie",2,4.5,44,"+212 6 70 96 40 30","212670964030"],["p22","Brahim Hamdaoui","👷","maconnerie",2,4.7,86,"+212 6 70 96 40 30","212670964030"],["p23","Lahcen Bennis","👷","maconnerie",7,4.6,58,"+212 6 70 96 40 30","212670964030"],["p24","Ali Tazi","👷","maconnerie",4,4.5,41,"+212 6 70 96 40 30","212670964030"],["p25","Samira Tazi","👩","electromenager",0,4.8,104,"+212 6 70 96 40 30","212670964030"],["p26","Nadia Fassi","👩","electromenager",3,4.7,76,"+212 6 70 96 40 30","212670964030"],["p27","Imane Cherkaoui","👩","electromenager",1,4.6,63,"+212 6 70 96 40 30","212670964030"],["p28","Aziz Cherkaoui","👨","jardinage",1,4.7,82,"+212 6 70 96 40 30","212670964030"],["p29","Driss Amrani","👨","jardinage",18,4.6,54,"+212 6 70 96 40 30","212670964030"],["p30","Hassan Ouazzani","👨‍","jardinage",5,4.5,39,"+212 6 70 96 40 30","212670964030"]];
+const sampleRaw=[["p1","Mohammed El Amrani","👨","plomberie",0,4.9,127,"+212 6 70 96 40 30","212670964030"],["p2","Youssef Benali","👨","electricite",1,4.8,98,"+212 6 70 96 40 30","212670964030"],["p3","Fatima Zahra","👩","menage",2,5.0,156,"+212 6 70 96 40 30","212670964030"],["p4","Hassan Idrissi","👨‍🎨","peinture",3,4.9,84,"+212 6 70 96 40 30","212670964030"],["p5","Amina Berrada","👩","climatisation",4,4.7,73,"+212 6 70 96 40 30","212670964030"],["p6","Rachid Ouazzani","🧔","menuiserie",5,4.8,65,"+212 6 70 96 40 30","212670964030"],["p7","Khalid Tazi","👨","plomberie",1,4.7,88,"+212 6 70 96 40 30","212670964030"],["p8","Omar Cherkaoui","👨‍🔧","plomberie",2,4.6,64,"+212 6 70 96 40 30","212670964030"],["p9","Reda Alami","👨","electricite",0,4.8,102,"+212 6 70 96 40 30","212670964030"],["p10","Nabil Fassi","👨","electricite",3,4.6,57,"+212 6 70 96 40 30","212670964030"],["p11","Said Bennis","👨","peinture",0,4.7,91,"+212 6 70 96 40 30","212670964030"],["p12","Adil Hamdaoui","👨","peinture",5,4.5,46,"+212 6 70 96 40 30","212670964030"],["p13","Khadija Amrani","👩","menage",0,4.9,143,"+212 6 70 96 40 30","212670964030"],["p14","Salma Berrada","👩","menage",1,4.7,78,"+212 6 70 96 40 30","212670964030"],["p15","Hamid Ouazzani","👨‍🔧","climatisation",0,4.6,69,"+212 6 70 96 40 30","212670964030"],["p16","Karim Idrissi","👨","climatisation",2,4.7,83,"+212 6 70 96 40 30","212670964030"],["p17","Mustafa Tazi","🧔","menuiserie",4,4.8,72,"+212 6 70 96 40 30","212670964030"],["p18","Jamal Fassi","🧔","menuiserie",0,4.6,59,"+212 6 70 96 40 30","212670964030"],["p19","Abdellah Cherkaoui","👨","serrurerie",0,4.7,95,"+212 6 70 96 40 30","212670964030"],["p20","Hicham Alami","👨","serrurerie",1,4.6,61,"+212 6 70 96 40 30","212670964030"],["p21","Tarik Bennis","👨‍","serrurerie",2,4.5,44,"+212 6 70 96 40 30","212670964030"],["p22","Brahim Hamdaoui","👷","maconnerie",2,4.7,86,"+212 6 70 96 40 30","212670964030"],["p23","Lahcen Bennis","👷","maconnerie",7,4.6,58,"+212 6 70 96 40 30","212670964030"],["p24","Ali Tazi","👷","maconnerie",4,4.5,41,"+212 6 70 96 40 30","212670964030"],["p25","Samira Tazi","👩","electromenager",0,4.8,104,"+212 6 70 96 40 30","212670964030"],["p26","Nadia Fassi","👩","electromenager",3,4.7,76,"+212 6 70 96 40 30","212670964030"],["p27","Imane Cherkaoui","👩","electromenager",1,4.6,63,"+212 6 70 96 40 30","212670964030"],["p28","Aziz Cherkaoui","👨","jardinage",1,4.7,82,"+212 6 70 96 40 30","212670964030"],["p29","Driss Amrani","👨","jardinage",18,4.6,54,"+212 6 70 96 40 30","212670964030"],["p30","Hassan Ouazzani","👨‍","jardinage",5,4.5,39,"+212 6 70 96 40 30","212670964030"]];
 const samplePros=sampleRaw.map((r,i)=>({id:r[0],name:r[1],emoji:r[2],category:r[3],city_index:r[4],rating:r[5],reviews:r[6],phone:r[7],whatsapp:r[8],specialty:sampleMeta[r[3]].specialty,description:(sampleDescs[r[0]]||sampleMeta[r[3]].desc),photo_url:`https://randomuser.me/api/portraits/${sampleAvatars[i]}.jpg`,photos:[`https://picsum.photos/seed/${r[0]}-w1/400/300`,`https://picsum.photos/seed/${r[0]}-w2/400/300`]}));
 let currentLang=localStorage.getItem("propro_lang")||"fr";
 Object.assign(translations.fr,{ai_auto_title:"Générateur automatique",ai_generate_desc:"Générer la description automatiquement",ai_generated:"Descriptions générées automatiquement",schedule_title:"Horaires de travail",schedule_enable:"Activer les horaires",schedule_open24:"Ouvert 24h/24",schedule_closed:"Fermé",schedule_public_title:"Horaires d'ouverture"});
@@ -1269,7 +1279,7 @@ renderReviewsBlock(p.id,"reviewsProfile");
 hideAllViews();document.getElementById("proProfileView").style.display="block";currentProProfileId=proId;
 window.scrollTo({top:0,behavior:"smooth"});
 }
-function renderAdminView(){hideAllViews();document.getElementById("adminView").style.display="block";renderAdminProList();renderSvcMediaList();renderSvcCategories();window.scrollTo({top:0,behavior:"smooth"})}
+function renderAdminView(){hideAllViews();document.getElementById("adminView").style.display="block";renderAdminProList();renderSvcMediaList();renderSvcCategories();renderLibraryAdmin();window.scrollTo({top:0,behavior:"smooth"})}
 function showMainView(){if(location.hash&&location.hash!=="#")location.hash="";else renderMainView()}
 function showFavoritesView(){location.hash="favorites"}
 function showProProfile(id){location.hash="pro="+id}
@@ -1351,9 +1361,74 @@ async function loadServiceMedia(){const{data,error}=await sb.from("service_media
 async function loadSampleToDB(){if(!isAdmin())return;for(const s of samplePros){await sb.from("professionals").upsert(s)}await loadProfessionals();setHeroCard();renderAdminProList();renderPros(null);showToast(t("admin_saved"))}
 function showPhotosSection(s){document.getElementById("proPhotosSection").style.display=s?"block":"none"}
 function renderPhotosList(){document.getElementById("proPhotosList").innerHTML=currentPhotos.map((u,i)=>`<div class="pro-photo-thumb"><img src="${u}" alt=""><button type="button" class="pro-photo-del" onclick="removeProPhoto(${i})">✕</button></div>`).join("")}
-async function uploadProPhotos(files){if(!currentProfile)return;for(const f of files){const safe=f.name.replace(/[^\w.\-]+/g,"_");const path=`${currentProfile.id}/${Date.now()}_${safe}`;const{error}=await sb.storage.from("pro-photos").upload(path,f);if(error){showToast(error.message);continue}const{data}=sb.storage.from("pro-photos").getPublicUrl(path);currentPhotos.push(data.publicUrl)}renderPhotosList()}
-async function removeProPhoto(i){const path=(currentPhotos[i]||"").split("/pro-photos/")[1];if(path)await sb.storage.from("pro-photos").remove([path]);currentPhotos.splice(i,1);renderPhotosList()}
+async function uploadProPhotos(files){if(!currentProfile)return;for(const f of files){const safe=f.name.replace(/[^\w.\-]+/g,"_");const path=`${currentProfile.id}/${Date.now()}_${safe}`;const{error}=await sb.storage.from("pro-photos").upload(path,f);if(error){showToast(error.message);continue}const{data}=sb.storage.from("pro-photos").getPublicUrl(path);currentPhotos.push(data.publicUrl)}renderPhotosList();renderLibraryGrid()}
+async function removeProPhoto(i){const path=(currentPhotos[i]||"").split("/pro-photos/")[1];if(path)await sb.storage.from("pro-photos").remove([path]);currentPhotos.splice(i,1);renderPhotosList();renderLibraryGrid()}
 document.getElementById("proPhotoInput").addEventListener("change",e=>uploadProPhotos(Array.from(e.target.files)));
+/* ============ BIBLIOTHÈQUE D'IMAGES PAR CATÉGORIE (bucket pro-photos / library/) ============ */
+let libraryCache={};
+async function listLibrary(catId){
+if(libraryCache[catId])return libraryCache[catId];
+const{data,error}=await sb.storage.from("pro-photos").list("library/"+catId,{limit:200});
+if(error||!data){libraryCache[catId]=[];return[]}
+const urls=data.filter(o=>o.name&&/\.(png|jpe?g|webp|gif)$/i.test(o.name)).map(o=>sb.storage.from("pro-photos").getPublicUrl("library/"+catId+"/"+o.name).publicUrl);
+libraryCache[catId]=urls;return urls;
+}
+function libCatsForForm(){
+const cats=[document.getElementById("pfCategory").value,...selectedProSvcIds];
+return [...new Set(cats.filter(Boolean))];
+}
+async function renderLibraryGrid(){
+const g=document.getElementById("libGrid");if(!g)return;
+const cats=libCatsForForm();
+let html="";
+for(const cid of cats){
+const urls=await listLibrary(cid);
+if(!urls.length)continue;
+const sd=servicesData.find(s=>s.id===cid);
+html+=`<div style="grid-column:1/-1;font-weight:700;font-size:.85rem;margin-top:.4rem">${sd?sd.icon+" "+sd.name[currentLang]:cid}</div>`;
+html+=urls.map(u=>`<div class="lib-item ${currentPhotos.includes(u)?"sel":""}" onclick="toggleLibraryPhoto('${u}')"><img src="${u}" alt="" loading="lazy">${currentPhotos.includes(u)?'<span class="lib-check">✓</span>':''}</div>`).join("");
+}
+if(!html)html=`<p style="grid-column:1/-1;color:var(--gray);font-size:.85rem;font-style:italic">${t("lib_empty")}</p>`;
+g.innerHTML=html;
+}
+function toggleLibraryPhoto(url){
+if(currentPhotos.includes(url)){currentPhotos=currentPhotos.filter(u=>u!==url)}
+else{const libCount=currentPhotos.filter(u=>u.includes("/library/")).length;if(libCount>=6){showToast(t("lib_max"));return}currentPhotos.push(url)}
+renderLibraryGrid();renderPhotosList();
+}
+function renderLibraryAdmin(){
+const sel=document.getElementById("libCatSelect");if(!sel)return;
+const prev=sel.value;
+sel.innerHTML=servicesData.map(s=>`<option value="${s.id}">${s.name[currentLang]}</option>`).join("");
+if([...sel.options].some(o=>o.value===prev))sel.value=prev;
+const cid=sel.value;
+listLibrary(cid).then(urls=>{
+const g=document.getElementById("libAdminGrid");if(!g)return;
+g.innerHTML=urls.length?urls.map(u=>`<div class="lib-item"><img src="${u}" alt="" loading="lazy"><button type="button" class="lib-del" onclick="deleteLibraryImage('${cid}','${u}')">✕</button></div>`).join(""):`<p style="grid-column:1/-1;color:var(--gray);font-size:.85rem;font-style:italic">${t("lib_empty")}</p>`;
+});
+}
+async function uploadLibraryImages(files){
+if(!isAdmin()){showToast(t("admin_no_access"));return}
+const cid=document.getElementById("libCatSelect").value;
+for(const f of files){
+const safe=f.name.replace(/[^\w.\-]+/g,"_");
+const path=`library/${cid}/${Date.now()}_${safe}`;
+const{error}=await sb.storage.from("pro-photos").upload(path,f);
+if(error){showToast(error.message);return}
+}
+libraryCache[cid]=null;await listLibrary(cid);renderLibraryAdmin();showToast(t("admin_saved"));
+}
+async function deleteLibraryImage(cid,url){
+if(!isAdmin())return;
+if(!confirm(t("admin_delete_confirm")))return;
+const path=decodeURIComponent(url.split("/pro-photos/")[1]||"");
+if(path)await sb.storage.from("pro-photos").remove([path]);
+libraryCache[cid]=null;await listLibrary(cid);renderLibraryAdmin();showToast(t("admin_deleted"));
+}
+document.getElementById("libUploadInput").addEventListener("change",e=>{uploadLibraryImages(Array.from(e.target.files));e.target.value=""});
+Object.assign(translations.fr,{lib_title:"Bibliothèque d'images de votre métier",lib_hint:"Touchez les images à ajouter à votre fiche (6 max).",lib_empty:"Pas encore d'images pour cette catégorie.",lib_max:"Maximum de photos de bibliothèque atteint (6)",admin_lib_title:"Bibliothèque d'images par catégorie"});
+Object.assign(translations.es,{lib_title:"Biblioteca de imágenes de tu profesión",lib_hint:"Toca las imágenes que quieras añadir a tu ficha (6 máx).",lib_empty:"Aún no hay imágenes para esta categoría.",lib_max:"Máximo de fotos de biblioteca alcanzado (6)",admin_lib_title:"Biblioteca de imágenes por categoría"});
+Object.assign(translations.ar,{lib_title:"مكتبة صور مهنتك",lib_hint:"اضغط على الصور التي تريد إضافتها إلى بطاقتك (6 كحد أقصى).",lib_empty:"لا توجد صور لهذه الفئة بعد.",lib_max:"تم بلوغ الحد الأقصى لصور المكتبة (6)",admin_lib_title:"مكتبة الصور حسب الفئة"});
 async function uploadAvatar(f){if(!f)return;const safe=f.name.replace(/[^\w.\-]+/g,"_");const path=`avatars/${Date.now()}_${safe}`;const{error}=await sb.storage.from("pro-photos").upload(path,f);if(error){showToast(error.message);return}const{data}=sb.storage.from("pro-photos").getPublicUrl(path);pendingAvatarUrl=data.publicUrl;const p=document.getElementById("pfAvatarPreview");p.src=pendingAvatarUrl;p.style.display="block";updateRemoveAvatarBtn()}
 document.getElementById("pfAvatarInput").addEventListener("change",e=>uploadAvatar(e.target.files[0]));
 function updateRemoveAvatarBtn(){const b=document.getElementById("pfAvatarRemove");if(b)b.style.display=pendingAvatarUrl?"inline-block":"none"}
@@ -1384,9 +1459,9 @@ const sel=document.getElementById("serviceSelect");
 if(!sel)return;
 sel.innerHTML=`<option value="">${t("search_all_services")}</option>`+servicesData.map(s=>`<option value="${s.id}">${s.icon} ${s.name[currentLang]}</option>`).join("");
 }
-function prepareProForm(){document.getElementById("pfCategory").innerHTML=servicesData.map(s=>`<option value="${s.id}">${s.name[currentLang]}</option>`).join("");document.getElementById("pfCity").innerHTML=citiesData.map((c,i)=>`<option value="${i}">${c[currentLang]}</option>`).join("");renderProSvcGrid()}
+function prepareProForm(){document.getElementById("pfCategory").innerHTML=servicesData.map(s=>`<option value="${s.id}">${s.name[currentLang]}</option>`).join("");document.getElementById("pfCity").innerHTML=citiesData.map((c,i)=>`<option value="${i}">${c[currentLang]}</option>`).join("");renderProSvcGrid();const pc=document.getElementById("pfCategory");if(pc)pc.onchange=renderLibraryGrid}
 function renderProSvcGrid(){const g=document.getElementById("proSvcGrid");g.innerHTML=servicesData.map(s=>`<label class="pro-svc-item ${selectedProSvcIds.includes(s.id)?"checked":""}"><input type="checkbox" value="${s.id}" ${selectedProSvcIds.includes(s.id)?"checked":""} onchange="toggleProSvc('${s.id}',this)"><span class="svc-icon">${s.icon}</span><span class="svc-label">${s.name[currentLang]}</span></label>`).join("");renderProSvcImgRows()}
-function toggleProSvc(id,input){if(input.checked){if(!selectedProSvcIds.includes(id))selectedProSvcIds.push(id)}else{selectedProSvcIds=selectedProSvcIds.filter(i=>i!==id)}input.closest(".pro-svc-item").classList.toggle("checked",input.checked);renderProSvcImgRows()}
+function toggleProSvc(id,input){if(input.checked){if(!selectedProSvcIds.includes(id))selectedProSvcIds.push(id)}else{selectedProSvcIds=selectedProSvcIds.filter(i=>i!==id)}input.closest(".pro-svc-item").classList.toggle("checked",input.checked);renderProSvcImgRows();renderLibraryGrid()}
 function renderProSvcImgRows(){const c=document.getElementById("proSvcImgs");if(selectedProSvcIds.length===0){c.innerHTML="";return}c.innerHTML=selectedProSvcIds.map(id=>{const sd=servicesData.find(s=>s.id===id);if(!sd)return"";const u=pendingProSvcImages[id]||"";return `<div class="pro-svc-img-row"><span class="svc-name">${sd.icon} ${sd.name[currentLang]}</span>${u?`<img src="${u}" alt="">`:""}<input type="file" accept="image/*" onchange="uploadProSvcImage('${id}',this.files[0])"></div>`}).join("")}
 async function uploadProSvcImage(sid,f){if(!f||!currentProfile)return;const safe=f.name.replace(/[^\w.\-]+/g,"_");const path=`prosvc/${currentProfile.id}_${sid}_${Date.now()}_${safe}`;const{error}=await sb.storage.from("pro-photos").upload(path,f);if(error){showToast(error.message);return}const{data}=sb.storage.from("pro-photos").getPublicUrl(path);pendingProSvcImages[sid]=data.publicUrl;renderProSvcImgRows()}
 function setAvatarPreview(u){const p=document.getElementById("pfAvatarPreview");if(u){p.src=u;p.style.display="block"}else{p.removeAttribute("src");p.style.display="none"}}
@@ -1401,12 +1476,12 @@ if(window.loadScheduleData){window.loadScheduleData((p&&p.links&&p.links.schedul
 function openProForm(proId){if(!isAdmin())return;selectedProSvcIds=[];pendingProSvcImages={};prepareProForm();
 if(proId){const p=prosData.find(x=>x.id===proId);editingProId=proId;currentPhotos=(p&&p.photos)?p.photos.slice():[];pendingAvatarUrl=(p&&p.photo_url)||null;pendingCoverUrl=(p&&p.cover_url)||null;fillProFormFromData(p);setAvatarPreview(pendingAvatarUrl);setCoverPreview(pendingCoverUrl);updateRemoveAvatarBtn();const ex=proServicesMap[proId]||[];selectedProSvcIds=ex.map(s=>s.service_id);ex.forEach(s=>{if(s.image_url)pendingProSvcImages[s.service_id]=s.image_url});renderProSvcGrid();document.getElementById("proFormTitle").textContent=t("admin_edit_pro")}
 else{editingProId=null;currentPhotos=[];pendingAvatarUrl=null;pendingCoverUrl=null;document.getElementById("proForm").reset();setAvatarPreview(null);setCoverPreview(null);updateRemoveAvatarBtn();document.getElementById("pfRating").value="4.5";renderProSvcGrid();document.getElementById("proFormTitle").textContent=t("admin_add_pro")}
-showPhotosSection(true);renderPhotosList();document.getElementById("proFormModal").classList.add("active");document.body.style.overflow="hidden"}
+showPhotosSection(true);renderPhotosList();renderLibraryGrid();document.getElementById("proFormModal").classList.add("active");document.body.style.overflow="hidden"}
 async function openMyProCard(){if(!currentProfile){openAuth("login");return}if(currentProfile.role!=="pro"){showToast(t("pro_only"));return}selectedProSvcIds=[];pendingProSvcImages={};prepareProForm();
 const{data,error}=await sb.from("professionals").select("*").eq("user_id",currentProfile.id).maybeSingle();
 if(!error&&data){editingProId=data.id;fillProFormFromData({id:data.id,name:data.name,emoji:data.emoji,category:data.category,specialty:data.specialty,city:citiesData[data.city_index]||citiesData[0],rating:parseFloat(data.rating),reviews:data.reviews,phone:data.phone,whatsapp:data.whatsapp,desc:data.description,links:data.links});currentPhotos=data.photos||[];pendingAvatarUrl=data.photo_url||null;pendingCoverUrl=data.cover_url||null;setAvatarPreview(pendingAvatarUrl);setCoverPreview(pendingCoverUrl);updateRemoveAvatarBtn();const ex=proServicesMap[data.id]||[];selectedProSvcIds=ex.map(s=>s.service_id);ex.forEach(s=>{if(s.image_url)pendingProSvcImages[s.service_id]=s.image_url});renderProSvcGrid();document.getElementById("proFormTitle").textContent=t("admin_edit_pro")}
 else{editingProId=null;document.getElementById("proForm").reset();document.getElementById("pfRating").value="4.5";currentPhotos=[];pendingAvatarUrl=null;pendingCoverUrl=null;setAvatarPreview(null);setCoverPreview(null);updateRemoveAvatarBtn();renderProSvcGrid();if(window.loadScheduleData)window.loadScheduleData(null);document.getElementById("proFormTitle").textContent=t("create_pro_card")}
-showPhotosSection(true);renderPhotosList();document.getElementById("proFormModal").classList.add("active");document.body.style.overflow="hidden"}
+showPhotosSection(true);renderPhotosList();renderLibraryGrid();document.getElementById("proFormModal").classList.add("active");document.body.style.overflow="hidden"}
 function closeProForm(){document.getElementById("proFormModal").classList.remove("active");document.body.style.overflow=""}
 async function saveProSvc(proId){await sb.from("pro_services").delete().eq("pro_id",proId);for(const id of selectedProSvcIds){await sb.from("pro_services").insert({pro_id:proId,service_id:id,image_url:pendingProSvcImages[id]||null})}await loadProServicesAll()}
 async function savePro(e){e.preventDefault();const name=document.getElementById("pfName").value.trim();if(!name){showToast(t("admin_name_required"));return}
@@ -1551,7 +1626,7 @@ function setLanguage(lang){currentLang=lang;localStorage.setItem("clickpubli_lan
 renderLangSwitchers();renderServiceSelect();renderCitySelects();renderFeatures();renderServices();renderCitiesFooter();prosLimit=0;renderPros(null);updateAuthUI();
 if(document.getElementById("favoritesView").style.display!=="none")renderFavoritesPage();
 if(document.getElementById("proProfileView").style.display!=="none"&&currentProProfileId)renderProProfileView(currentProProfileId);
-if(document.getElementById("adminView").style.display!=="none"&&isAdmin()){renderAdminProList();renderSvcMediaList();renderSvcCategories()}
+if(document.getElementById("adminView").style.display!=="none"&&isAdmin()){renderAdminProList();renderSvcMediaList();renderSvcCategories();renderLibraryAdmin()}
 if(document.getElementById("faqView").style.display!=="none")renderFaqList();
 if(window.refreshScheduleEditorLanguage)refreshScheduleEditorLanguage();
 if(currentModalProId&&document.getElementById("contactModal").classList.contains("active")){fillProModal(currentModalProId);renderReviewsBlock(currentModalProId,"reviewsModal");updateModalFavButton(currentModalProId)}
@@ -1570,7 +1645,7 @@ else if(chatStep==="summary"){html=`<button class="chat-chip" onclick="chatSendW
 c.innerHTML=html}
 function chatPickService(sid){const s=servicesData.find(x=>x.id===sid);if(!s)return;chatData.service=s;addChat(s.name[currentLang],"user");chatStep="city";addChat(t("chat_q_city"),"bot");renderChatChips()}
 function chatPickCity(i){const x=citiesData[i];if(!x)return;chatData.city=x;addChat(x[currentLang],"user");chatStep="need";addChat(t("chat_q_need"),"bot");renderChatChips()}
-function chatPickUrgency(i){const u=chatUrgOpts[currentLang][i];if(!u)return;chatData.urgency=u;chatStep="name";addChat(t("chat_q_name"),"bot");renderChatChips()}
+function chatPickUrgency(i){const u=chatUrgOpts[currentLang][i];if(!u)return;chatData.urgency=u;addChat(u,"user");chatStep="name";addChat(t("chat_q_name"),"bot");renderChatChips()}
 function chatSkipEmail(){chatData.email="";addChat(t("chat_skip"),"user");chatStep="summary";addChat(chatSummaryText(),"bot");renderChatChips()}
 function chatSummaryText(){const s=chatData.service?chatData.service.name[currentLang]:"—";const c=chatData.city?chatData.city[currentLang]:"—";
 let out=`${t("chat_summary_title")}
@@ -1668,510 +1743,33 @@ window.addEventListener("load",function(){setTimeout(hardRenderFallback,800)});
 GENERADOR AUTOMÁTICO DE DESCRIPCIONES + HORARIOS
 Sin token, sin IA externa, basado en plantillas
 ========================================================= */
-Object.assign(translations.fr, {
-ai_auto_title:"Générateur automatique",
-ai_generate_desc:"Générer la description automatiquement",
-ai_generated:"Descriptions générées automatiquement",
-schedule_title:"Horaires de travail",
-schedule_enable:"Activer les horaires",
-schedule_open24:"Ouvert 24h/24",
-schedule_closed:"Fermé",
-schedule_public_title:"Horaires d'ouverture"
-});
-Object.assign(translations.es, {
-ai_auto_title:"Generador automático",
-ai_generate_desc:"Generar la descripción automáticamente",
-ai_generated:"Descripciones generadas automáticamente",
-schedule_title:"Horarios de trabajo",
-schedule_enable:"Activar horarios",
-schedule_open24:"Abierto 24h/24",
-schedule_closed:"Cerrado",
-schedule_public_title:"Horario de apertura"
-});
-Object.assign(translations.ar, {
-ai_auto_title:"مولد تلقائي",
-ai_generate_desc:"إنشاء الوصف تلقائياً",
-ai_generated:"تم إنشاء الأوصاف تلقائياً",
-schedule_title:"أوقات العمل",
-schedule_enable:"تفعيل أوقات العمل",
-schedule_open24:"مفتوح 24 ساعة",
-schedule_closed:"مغلق",
-schedule_public_title:"أوقات العمل"
-});
 const SCHEDULE_DAY_KEYS = ["mon","tue","wed","thu","fri","sat","sun"];
 const SCHEDULE_DAY_LABELS = {
-fr:{
-mon:"Lundi",
-tue:"Mardi",
-wed:"Mercredi",
-thu:"Jeudi",
-fri:"Vendredi",
-sat:"Samedi",
-sun:"Dimanche"
-},
-es:{
-mon:"Lunes",
-tue:"Martes",
-wed:"Miércoles",
-thu:"Jueves",
-fri:"Viernes",
-sat:"Sábado",
-sun:"Domingo"
-},
-ar:{
-mon:"الاثنين",
-tue:"الثلاثاء",
-wed:"الأربعاء",
-thu:"الخميس",
-fri:"الجمعة",
-sat:"السبت",
-sun:"الأحد"
-}
+fr:{mon:"Lundi",tue:"Mardi",wed:"Mercredi",thu:"Jeudi",fri:"Vendredi",sat:"Samedi",sun:"Dimanche"},
+es:{mon:"Lunes",tue:"Martes",wed:"Miércoles",thu:"Jueves",fri:"Viernes",sat:"Sábado",sun:"Domingo"},
+ar:{mon:"الاثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",sun:"الأحد"}
 };
 const GEN_CATEGORY_CONTENT = {
-default:{
-job:{
-fr:"professionnel",
-es:"profesional",
-ar:"محترف"
-},
-services:{
-fr:[
-"dépannage rapide",
-"installation",
-"entretien",
-"réparation",
-"conseils personnalisés"
-],
-es:[
-"reparaciones rápidas",
-"instalación",
-"mantenimiento",
-"soluciones a medida",
-"consejos personalizados"
-],
-ar:[
-"تدخلات سريعة",
-"تركيب",
-"صيانة",
-"إصلاح",
-"نصائح شخصية"
-]
-}
-},
-plomberie:{
-job:{
-fr:"plombier",
-es:"fontanero",
-ar:"سباك"
-},
-services:{
-fr:[
-"réparation de fuites d'eau",
-"débouchage",
-"installation sanitaire",
-"chauffe-eau",
-"robinetterie"
-],
-es:[
-"reparación de fugas de agua",
-"desatascos",
-"instalación sanitaria",
-"calentadores de agua",
-"grifería"
-],
-ar:[
-"إصلاح تسربات المياه",
-"تسريح القنوات",
-"تركيب الأدوات الصحية",
-"سخانات الماء",
-"الحنفيات"
-]
-}
-},
-electricite:{
-job:{
-fr:"électricien",
-es:"electricista",
-ar:"كهربائي"
-},
-services:{
-fr:[
-"dépannage électrique",
-"installation de tableaux",
-"éclairage",
-"prises et interrupteurs",
-"mise aux normes"
-],
-es:[
-"reparaciones eléctricas",
-"instalación de cuadros eléctricos",
-"iluminación",
-"enchufes e interruptores",
-"normalización de instalaciones"
-],
-ar:[
-"إصلاح الأعطال الكهربائية",
-"تركيب اللوحات الكهربائية",
-"الإضاءة",
-"المقابس والمفاتيح",
-"تحديث التوصيلات"
-]
-}
-},
-peinture:{
-job:{
-fr:"peintre",
-es:"pintor",
-ar:"صباغ"
-},
-services:{
-fr:[
-"peinture intérieure",
-"peinture extérieure",
-"enduits et finitions",
-"traitement de l'humidité",
-"décoration"
-],
-es:[
-"pintura interior",
-"pintura exterior",
-"enlucido y acabados",
-"tratamiento de humedad",
-"decoración"
-],
-ar:[
-"الصباغة الداخلية",
-"الصباغة الخارجية",
-"التشطيبات",
-"معالجة الرطوبة",
-"الديكور"
-]
-}
-},
-menage:{
-job:{
-fr:"professionnel du ménage",
-es:"profesional de limpieza",
-ar:"متخصص في التنظيف"
-},
-services:{
-fr:[
-"ménage à domicile",
-"nettoyage de bureaux",
-"nettoyage après travaux",
-"lavage de vitres",
-"repassage"
-],
-es:[
-"limpieza a domicilio",
-"limpieza de oficinas",
-"limpieza después de obras",
-"lavado de ventanas",
-"planchado"
-],
-ar:[
-"التنظيف المنزلي",
-"تنظيف المكاتب",
-"التنظيف بعد الأشغال",
-"غسل النوافذ",
-"الكي"
-]
-}
-},
-climatisation:{
-job:{
-fr:"technicien en climatisation",
-es:"técnico de climatización",
-ar:"تقني تكييف"
-},
-services:{
-fr:[
-"installation de climatiseurs",
-"entretien annuel",
-"recharge de gaz",
-"réparation de fuites",
-"nettoyage des filtres"
-],
-es:[
-"instalación de aires acondicionados",
-"mantenimiento anual",
-"recarga de gas",
-"reparación de fugas",
-"limpieza de filtros"
-],
-ar:[
-"تركيب المكيفات",
-"الصيانة السنوية",
-"شحن الغاز",
-"إصلاح التسربات",
-"تنظيف الفلاتر"
-]
-}
-},
-menuiserie:{
-job:{
-fr:"menuisier",
-es:"carpintero",
-ar:"نجار"
-},
-services:{
-fr:[
-"portes intérieures",
-"placards sur mesure",
-"meubles en bois",
-"réparation de meubles",
-"habillage mural"
-],
-es:[
-"puertas interiores",
-"armarios a medida",
-"muebles de madera",
-"reparación de muebles",
-"revestimientos murales"
-],
-ar:[
-"الأبواب الداخلية",
-"خزائن حسب الطلب",
-"أثاث خشبي",
-"إصلاح الأثاث",
-"تكسية الجدران"
-]
-}
-},
-serrurerie:{
-job:{
-fr:"serrurier",
-es:"cerrajero",
-ar:"صانع أقفال"
-},
-services:{
-fr:[
-"ouverture de portes",
-"changement de serrures",
-"installation de portes blindées",
-"duplicata de clés",
-"dépannage urgent"
-],
-es:[
-"apertura de puertas",
-"cambio de cerraduras",
-"instalación de puertas blindadas",
-"copias de llaves",
-"urgencias"
-],
-ar:[
-"فتح الأبواب",
-"تغيير الأقفال",
-"تركيب الأبواب المصفحة",
-"نسخ المفاتيح",
-"التدخلات المستعجلة"
-]
-}
-},
-maconnerie:{
-job:{
-fr:"maçon",
-es:"albañil",
-ar:"بنّاء"
-},
-services:{
-fr:[
-"travaux de maçonnerie",
-"murs et cloisons",
-"réparation de fissures",
-"dalle béton",
-"petites constructions"
-],
-es:[
-"trabajos de albañilería",
-"muros y tabiques",
-"reparación de grietas",
-"losa de hormigón",
-"pequeñas construcciones"
-],
-ar:[
-"أشغال البناء",
-"الجدران والفواصل",
-"إصلاح الشقوق",
-"الخرسانة",
-"البناءات الصغيرة"
-]
-}
-},
-electromenager:{
-job:{
-fr:"technicien électroménager",
-es:"técnico de electrodomésticos",
-ar:"تقني أجهزة منزلية"
-},
-services:{
-fr:[
-"réparation de réfrigérateurs",
-"réparation de lave-linge",
-"dépannage de fours",
-"installation d'appareils",
-"entretien"
-],
-es:[
-"reparación de frigoríficos",
-"reparación de lavadoras",
-"reparación de hornos",
-"instalación de electrodomésticos",
-"mantenimiento"
-],
-ar:[
-"إصلاح الثلاجات",
-"إصلاح الغسالات",
-"إصلاح الأفران",
-"تركيب الأجهزة",
-"الصيانة"
-]
-}
-},
-jardinage:{
-job:{
-fr:"jardinier",
-es:"jardinero",
-ar:"بستاني"
-},
-services:{
-fr:[
-"entretien de jardins",
-"tonte de pelouse",
-"taille d'arbres",
-"plantation",
-"arrosage automatique"
-],
-es:[
-"mantenimiento de jardines",
-"corte de césped",
-"poda de árboles",
-"plantación",
-"riego automático"
-],
-ar:[
-"العناية بالحدائق",
-"قص العشب",
-"تقليم الأشجار",
-"الغرس",
-"الري التلقائي"
-]
-}
-},
-piscine:{
-job:{
-fr:"spécialiste piscines",
-es:"especialista en piscinas",
-ar:"متخصص في المسابح"
-},
-services:{
-fr:[
-"entretien de piscines",
-"traitement de l'eau",
-"réparation de pompes",
-"nettoyage de bassins",
-"contrôle de filtration"
-],
-es:[
-"mantenimiento de piscinas",
-"tratamiento del agua",
-"reparación de bombas",
-"limpieza de vasos",
-"control de filtración"
-],
-ar:[
-"صيانة المسابح",
-"معالجة المياه",
-"إصلاح المضخات",
-"تنظيف الأحواض",
-"مراقبة نظام الترشيح"
-]
-}
-},
-carrelage:{
-job:{
-fr:"carreleur",
-es:"solador / alicatador",
-ar:"زلايجي"
-},
-services:{
-fr:[
-"pose de carrelage",
-"faïence murale",
-"plinthes",
-"rénovation de sols",
-"joints et finitions"
-],
-es:[
-"colocación de baldosas",
-"azulejos de pared",
-"rodapiés",
-"renovación de suelos",
-"juntas y acabados"
-],
-ar:[
-"تركيب الزليج",
-"القيشاني الجداري",
-"الحواف",
-"تجديد الأرضيات",
-"التشطيبات"
-]
-}
-}
+default:{job:{fr:"professionnel",es:"profesional",ar:"محترف"},services:{fr:["dépannage rapide","installation","entretien","réparation","conseils personnalisés"],es:["reparaciones rápidas","instalación","mantenimiento","soluciones a medida","consejos personalizados"],ar:["تدخلات سريعة","تركيب","صيانة","إصلاح","نصائح شخصية"]}},
+plomberie:{job:{fr:"plombier",es:"fontanero",ar:"سباك"},services:{fr:["réparation de fuites d'eau","débouchage","installation sanitaire","chauffe-eau","robinetterie"],es:["reparación de fugas de agua","desatascos","instalación sanitaria","calentadores de agua","grifería"],ar:["إصلاح تسربات المياه","تسريح القنوات","تركيب الأدوات الصحية","سخانات الماء","الحنفيات"]}},
+electricite:{job:{fr:"électricien",es:"electricista",ar:"كهربائي"},services:{fr:["dépannage électrique","installation de tableaux","éclairage","prises et interrupteurs","mise aux normes"],es:["reparaciones eléctricas","instalación de cuadros eléctricos","iluminación","enchufes e interruptores","normalización de instalaciones"],ar:["إصلاح الأعطال الكهربائية","تركيب اللوحات الكهربائية","الإضاءة","المقابس والمفاتيح","تحديث التوصيلات"]}},
+peinture:{job:{fr:"peintre",es:"pintor",ar:"صباغ"},services:{fr:["peinture intérieure","peinture extérieure","enduits et finitions","traitement de l'humidité","décoration"],es:["pintura interior","pintura exterior","enlucido y acabados","tratamiento de humedad","decoración"],ar:["الصباغة الداخلية","الصباغة الخارجية","التشطيبات","معالجة الرطوبة","الديكور"]}},
+menage:{job:{fr:"professionnel du ménage",es:"profesional de limpieza",ar:"متخصص في التنظيف"},services:{fr:["ménage à domicile","nettoyage de bureaux","nettoyage après travaux","lavage de vitres","repassage"],es:["limpieza a domicilio","limpieza de oficinas","limpieza después de obras","lavado de ventanas","planchado"],ar:["التنظيف المنزلي","تنظيف المكاتب","التنظيف بعد الأشغال","غسل النوافذ","الكي"]}},
+climatisation:{job:{fr:"technicien en climatisation",es:"técnico de climatización",ar:"تقني تكييف"},services:{fr:["installation de climatiseurs","entretien annuel","recharge de gaz","réparation de fuites","nettoyage des filtres"],es:["instalación de aires acondicionados","mantenimiento anual","recarga de gas","reparación de fugas","limpieza de filtros"],ar:["تركيب المكيفات","الصيانة السنوية","شحن الغاز","إصلاح التسربات","تنظيف الفلاتر"]}},
+menuiserie:{job:{fr:"menuisier",es:"carpintero",ar:"نجار"},services:{fr:["portes intérieures","placards sur mesure","meubles en bois","réparation de meubles","habillage mural"],es:["puertas interiores","armarios a medida","muebles de madera","reparación de muebles","revestimientos murales"],ar:["الأبواب الداخلية","خزائن حسب الطلب","أثاث خشبي","إصلاح الأثاث","تكسية الجدران"]}},
+serrurerie:{job:{fr:"serrurier",es:"cerrajero",ar:"صانع أقفال"},services:{fr:["ouverture de portes","changement de serrures","installation de portes blindées","duplicata de clés","dépannage urgent"],es:["apertura de puertas","cambio de cerraduras","instalación de puertas blindadas","copias de llaves","urgencias"],ar:["فتح الأبواب","تغيير الأقفال","تركيب الأبواب المصفحة","نسخ المفاتيح","التدخلات المستعجلة"]}},
+maconnerie:{job:{fr:"maçon",es:"albañil",ar:"بنّاء"},services:{fr:["travaux de maçonnerie","murs et cloisons","réparation de fissures","dalle béton","petites constructions"],es:["trabajos de albañilería","muros y tabiques","reparación de grietas","losa de hormigón","pequeñas construcciones"],ar:["أشغال البناء","الجدران والفواصل","إصلاح الشقوق","الخرسانة","البناءات الصغيرة"]}},
+electromenager:{job:{fr:"technicien électroménager",es:"técnico de electrodomésticos",ar:"تقني أجهزة منزلية"},services:{fr:["réparation de réfrigérateurs","réparation de lave-linge","dépannage de fours","installation d'appareils","entretien"],es:["reparación de frigoríficos","reparación de lavadoras","reparación de hornos","instalación de electrodomésticos","mantenimiento"],ar:["إصلاح الثلاجات","إصلاح الغسالات","إصلاح الأفران","تركيب الأجهزة","الصيانة"]}},
+jardinage:{job:{fr:"jardinier",es:"jardinero",ar:"بستاني"},services:{fr:["entretien de jardins","tonte de pelouse","taille d'arbres","plantation","arrosage automatique"],es:["mantenimiento de jardines","corte de césped","poda de árboles","plantación","riego automático"],ar:["العناية بالحدائق","قص العشب","تقليم الأشجار","الغرس","الري التلقائي"]}},
+piscine:{job:{fr:"spécialiste piscines",es:"especialista en piscinas",ar:"متخصص في المسابح"},services:{fr:["entretien de piscines","traitement de l'eau","réparation de pompes","nettoyage de bassins","contrôle de filtration"],es:["mantenimiento de piscinas","tratamiento del agua","reparación de bombas","limpieza de vasos","control de filtración"],ar:["صيانة المسابح","معالجة المياه","إصلاح المضخات","تنظيف الأحواض","مراقبة نظام الترشيح"]}},
+carrelage:{job:{fr:"carreleur",es:"solador / alicatador",ar:"زلايجي"},services:{fr:["pose de carrelage","faïence murale","plinthes","rénovation de sols","joints et finitions"],es:["colocación de baldosas","azulejos de pared","rodapiés","renovación de suelos","juntas y acabados"],ar:["تركيب الزليج","القيشاني الجداري","الحواف","تجديد الأرضيات","التشطيبات"]}}
 };
 const GEN_TEMPLATES = {
-specialite:{
-fr:[
-"{name} – {job} à {city} : {services}",
-"{job} à {city} – {services}",
-"{cat} à {city} : {services}"
-],
-es:[
-"{name} – {job} en {city}: {services}",
-"{job} en {city} – {services}",
-"{cat} en {city}: {services}"
-],
-ar:[
-"{name} – {job} في {city}: {services}",
-"{job} في {city} – {services}",
-"{cat} في {city}: {services}"
-]
-},
-long:{
-fr:[
-"{name} propose des services de {cat} à {city} : {services}. Travail soigné, rapide et adapté à votre budget. Devis gratuit, contact direct et sans commission au Maroc.",
-"{name} est votre {job} à {city}. Spécialiste de {services}, il intervient rapidement pour un travail propre, sérieux et garanti. Devis gratuit et contact direct sans commission.",
-"Besoin d'un service de {cat} à {city} ? {name} prend en charge {services}. Intervention rapide, tarifs transparents et travail de qualité partout à {city} et alentours."
-],
-es:[
-"{name} ofrece servicios de {cat} en {city}: {services}. Trabajo cuidadoso, rápido y adaptado a tu presupuesto. Presupuesto gratuito, contacto directo y sin comisiones en Marruecos.",
-"{name} es tu {job} en {city}. Especialista en {services}, ofrece un trabajo rápido, limpio y garantizado. Presupuesto gratuito y contacto directo sin comisiones.",
-"¿Necesitas un servicio de {cat} en {city}? {name} se encarga de {services}. Intervención rápida, precios transparentes y trabajo de calidad en {city} y alrededores."
-],
-ar:[
-"{name} يقدم خدمات {cat} في {city}: {services}. عمل متقن وسريع ومناسب لميزانيتك، مع عرض سعر مجاني وتواصل مباشر وبدون عمولة في المغرب.",
-"{name} هو {job} في {city}. متخصص في {services}، مع تدخل سريع وعمل نظيف ومضمون. عرض سعر مجاني وتواصل مباشر بدون عمولة.",
-"هل تحتاج إلى خدمة {cat} في {city}؟ يتكفل {name} بـ {services}. تدخل سريع وأسعار واضحة وعمل عالي الجودة في {city} وما حولها."
-]
-},
-short:{
-fr:[
-"{job} à {city} : {services}. Devis gratuit.",
-"{name} – {cat} à {city}. Devis gratuit et contact direct.",
-"{cat} à {city} : {services}. Sans commission ni intermédiaire."
-],
-es:[
-"{job} en {city}: {services}. Presupuesto gratuito.",
-"{name} – {cat} en {city}. Presupuesto gratuito y contacto directo.",
-"{cat} en {city}: {services}. Sin comisiones ni intermediarios."
-],
-ar:[
-"{job} في {city}: {services}. عرض سعر مجاني.",
-"{name} – {cat} في {city}. عرض سعر مجاني وتواصل مباشر.",
-"{cat} في {city}: {services}. بدون عمولة أو وسيط."
-]
-}
+specialite:{fr:["{name} – {job} à {city} : {services}","{job} à {city} – {services}","{cat} à {city} : {services}"],es:["{name} – {job} en {city}: {services}","{job} en {city} – {services}","{cat} en {city}: {services}"],ar:["{name} – {job} في {city}: {services}","{job} في {city} – {services}","{cat} في {city}: {services}"]},
+long:{fr:["{name} propose des services de {cat} à {city} : {services}. Travail soigné, rapide et adapté à votre budget. Devis gratuit, contact direct et sans commission au Maroc.","{name} est votre {job} à {city}. Spécialiste de {services}, il intervient rapidement pour un travail propre, sérieux et garanti. Devis gratuit et contact direct sans commission.","Besoin d'un service de {cat} à {city} ? {name} prend en charge {services}. Intervention rapide, tarifs transparents et travail de qualité partout à {city} et alentours."],
+es:["{name} ofrece servicios de {cat} en {city}: {services}. Trabajo cuidadoso, rápido y adaptado a tu presupuesto. Presupuesto gratuito, contacto directo y sin comisiones en Marruecos.","{name} es tu {job} en {city}. Especialista en {services}, ofrece un trabajo rápido, limpio y garantizado. Presupuesto gratuito y contacto directo sin comisiones.","¿Necesitas un servicio de {cat} en {city}? {name} se encarga de {services}. Intervención rápida, precios transparentes y trabajo de calidad en {city} y alrededores."],
+ar:["{name} يقدم خدمات {cat} في {city}: {services}. عمل متقن وسريع ومناسب لميزانيتك، مع عرض سعر مجاني وتواصل مباشر وبدون عمولة في المغرب.","{name} هو {job} في {city}. متخصص في {services}، مع تدخل سريع وعمل نظيف ومضمون. عرض سعر مجاني وتواصل مباشر بدون عمولة.","هل تحتاج إلى خدمة {cat} في {city}؟ يتكفل {name} بـ {services}. تدخل سريع وأسعار واضحة وعمل عالي الجودة في {city} وما حولها."]},
+short:{fr:["{job} à {city} : {services}. Devis gratuit.","{name} – {cat} à {city}. Devis gratuit et contact direct.","{cat} à {city} : {services}. Sans commission ni intermédiaire."],es:["{job} en {city}: {services}. Presupuesto gratuito.","{name} – {cat} en {city}. Presupuesto gratuito y contacto directo.","{cat} en {city}: {services}. Sin comisiones ni intermediarios."],ar:["{job} في {city}: {services}. عرض سعر مجاني.","{name} – {cat} في {city}. عرض سعر مجاني وتواصل مباشر.","{cat} في {city}: {services}. بدون عمولة أو وسيط."]}
 };
 function capFirst(s){s=(s||"").trim();if(!s)return"";return s.charAt(0).toUpperCase()+s.slice(1)}
 function proSpecialtyShort(p){
