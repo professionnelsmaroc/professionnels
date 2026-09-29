@@ -165,18 +165,37 @@ var sh=(r.description&&r.description.short_fr)||"";
 var av=r.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
 return '<article class="pro-card"><div class="pro-top"><img class="ava" src="'+av+'" alt=""></div><div class="pro-body"><h3>'+r.name+'</h3><div class="pro-job">Électricien</div><div class="pro-city">📍 Rabat</div><p class="pro-short">'+sh+'</p><span class="pro-rate">★ '+Number(r.rating||0).toFixed(1)+' ('+(r.reviews||0)+' avis)</span><button class="pro-btn"><a href="index.html#pro='+r.id+'">Contacter</a></button><button class="pro-btn sec"><a href="index.html#pro='+r.id+'">Voir le profil complet</a></button></div></article>';
 }
-fetch(U+"/rest/v1/professionals?select=id,name,rating,reviews,photo_url,description&category=eq."+CAT+"&city_index=eq."+CI+"&order=rating.desc&limit=6",{headers:{apikey:K,Authorization:"Bearer "+K}})
+fetch(U+"/rest/v1/professionals?select=id,name,city_index,rating,reviews,photo_url,description&category=eq."+CAT+"&order=rating.desc&limit=12",{headers:{apikey:K,Authorization:"Bearer "+K}})
 .then(function(r){return r.json()}).then(function(rows){
-var html=(rows||[]).map(card).join("");
-if(!rows||rows.length===0){html='<div class="slot-card"><span class="big">👷</span><strong>Aucun professionnel publié pour le moment</strong><p>Vous exercez le métier de électricien à Rabat ? Soyez le premier à créer votre fiche gratuite.</p><a href="index.html">Créer ma fiche pro</a></div>';}
-else{html+='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Vous êtes électricien à Rabat ? Rejoignez l&#39;annuaire et recevez des clients en direct, gratuitement.</p><a href="index.html">Créer ma fiche pro</a></div>';}
+rows = rows || [];
+var localRows = rows.filter(function(p){return p.city_index === CI});
+var hasLocal = localRows.length > 0;
+var displayRows = hasLocal ? localRows.slice(0,6) : rows.slice(0,6);
+var html = displayRows.map(card).join("");
+if(!hasLocal && rows.length > 0){
+html = '<div class="slot-card" style="grid-column:1/-1;border-style:solid;border-color:#fbbf24;background:#fef3c7"><span class="big">🌍</span><strong>Aucun électricien publié à Rabat pour le moment</strong><p>Voici les électriciens les mieux notés d&#39;autres villes, susceptibles de se déplacer ou de vous conseiller à distance.</p></div>' + html;
+}
+if(displayRows.length === 0){
+html='<div class="slot-card"><span class="big">👷</span><strong>Aucun électricien publié pour le moment</strong><p>Vous exercez le métier de électricien à Rabat ou ailleurs au Maroc ? Soyez le premier à créer votre fiche gratuite.</p><a href="index.html">Créer ma fiche pro</a></div>';
+}else{
+html+='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Vous êtes électricien à Rabat ? Rejoignez l&#39;annuaire et recevez des clients en direct, gratuitement.</p><a href="index.html">Créer ma fiche pro</a></div>';
+}
 g.innerHTML=html;
 var hp=document.getElementById("heroPro"),cd=document.getElementById("ctaDevis");
-if(rows&&rows.length>0){var r0=rows[0];var sh0=(r0.description&&r0.description.short_fr)||"";var av0=r0.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
+var r0 = localRows[0] || rows[0];
+if(r0){
+var sh0=(r0.description&&r0.description.short_fr)||"";
+var av0=r0.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
 if(hp){hp.innerHTML='<span class="hp-badge">⭐ Professionnel en vedette</span><img class="ava" src="'+av0+'" alt=""><h3>'+r0.name+'</h3><div class="hp-job">Électricien</div><div class="hp-city">📍 Rabat</div><p class="hp-short">'+sh0+'</p><span class="hp-rate">★ '+Number(r0.rating||0).toFixed(1)+' ('+(r0.reviews||0)+' avis)</span><button class="hp-btn"><a href="index.html#pro='+r0.id+'">Contacter</a></button><button class="hp-btn sec"><a href="index.html#pro='+r0.id+'">Voir le profil complet</a></button>';}
 if(cd){cd.href="index.html#pro="+r0.id;}
-}else{if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Vous êtes électricien à Rabat ? Soyez le premier professionnel en vedette de cette page.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}}
-}).catch(function(){g.innerHTML='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Rejoignez l&#39;annuaire des électriciens de Rabat.</p><a href="index.html">Créer ma fiche pro</a></div>';var hp=document.getElementById("heroPro");if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Rejoignez l&#39;annuaire des électriciens de Rabat et devenez le professionnel en vedette.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}});
+}else{
+if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Vous êtes électricien à Rabat ? Soyez le premier professionnel en vedette de cette page.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}
+}
+}).catch(function(){
+g.innerHTML='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Rejoignez l&#39;annuaire des électriciens de Rabat.</p><a href="index.html">Créer ma fiche pro</a></div>';
+var hp=document.getElementById("heroPro");
+if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Rejoignez l&#39;annuaire des électriciens de Rabat et devenez le professionnel en vedette.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}
+});
 })();
 </script>
 </body>
