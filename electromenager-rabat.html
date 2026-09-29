@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Réparateur d'électroménager à Rabat — Devis gratuit, avis vérifiés | Professionnels Maroc</title>
-<meta name="description" content="Trouvez un réparateur d'électroménager à Rabat : réparation de lave-linge, Réfrigérateurs et congélateurs et fours et cuisinières. Devis gratuit, contact direct sans commission, avis clients vérifiés.">
+<meta name="description" content="Comparez les réparateurs d'électroménager de Rabat : fiches vérifiées, avis authentiques et devis gratuit. Contact direct sans intermédiaire.">
 <link rel="canonical" href="https://professionnelsmaroc.click/electromenager-rabat">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Réparateur d'électroménager à Rabat — Devis gratuit, avis vérifiés | Professionnels Maroc">
-<meta property="og:description" content="Trouvez un réparateur d'électroménager à Rabat : réparation de lave-linge, Réfrigérateurs et congélateurs et fours et cuisinières. Devis gratuit, contact direct sans commission, avis clients vérifiés.">
+<meta property="og:description" content="Comparez les réparateurs d'électroménager de Rabat : fiches vérifiées, avis authentiques et devis gratuit. Contact direct sans intermédiaire.">
 <meta property="og:url" content="https://professionnelsmaroc.click/electromenager-rabat">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -110,8 +110,8 @@ footer a{color:#cbd5e1;font-weight:600}
 <div class="hero-copy">
 <span class="hero-badge">🛡️ Professionnels vérifiés · devis gratuit</span>
 <h1>Réparateur d'électroménager à <em>Rabat</em></h1>
-<p class="hero-sub">Intervention à domicile dans tous les quartiers de Rabat</p>
-<p>À Rabat, nos réparateurs d'électroménager prennent en charge réparation de lave-linge, Réfrigérateurs et congélateurs et fours et cuisinières. Chaque fiche est contrôlée (identité, coordonnées, références) avant publication : vous choisissez en toute confiance et contactez directement le prestataire.</p>
+<p class="hero-sub">Professionnels vérifiés, avis clients authentiques et contact direct</p>
+<p>Trouver un bon réparateur d'électroménager à Rabat n'a jamais été aussi simple : fiches vérifiées, avis clients authentiques et coordonnées directes. Nos réparateurs d'électroménager interviennent pour réparation de lave-linge, Réfrigérateurs et congélateurs et fours et cuisinières, partout à Rabat.</p>
 <div class="hero-cta"><a class="btn btn-accent" href="#pros-list">🛋️ Voir les réparateurs d'électroménager disponibles</a><a class="btn btn-ghost" id="ctaDevis" href="index.html#pros">Demander un devis</a></div>
 <div class="hero-mini"><span>✓ Devis gratuit</span><span>✓ Sans commission</span><span>✓ Avis clients vérifiés</span><span>✓ Service flexible</span></div>
 </div>
@@ -165,18 +165,37 @@ var sh=(r.description&&r.description.short_fr)||"";
 var av=r.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
 return '<article class="pro-card"><div class="pro-top"><img class="ava" src="'+av+'" alt=""></div><div class="pro-body"><h3>'+r.name+'</h3><div class="pro-job">Réparateur d'électroménager</div><div class="pro-city">📍 Rabat</div><p class="pro-short">'+sh+'</p><span class="pro-rate">★ '+Number(r.rating||0).toFixed(1)+' ('+(r.reviews||0)+' avis)</span><button class="pro-btn"><a href="index.html#pro='+r.id+'">Contacter</a></button><button class="pro-btn sec"><a href="index.html#pro='+r.id+'">Voir le profil complet</a></button></div></article>';
 }
-fetch(U+"/rest/v1/professionals?select=id,name,rating,reviews,photo_url,description&category=eq."+CAT+"&city_index=eq."+CI+"&order=rating.desc&limit=6",{headers:{apikey:K,Authorization:"Bearer "+K}})
+fetch(U+"/rest/v1/professionals?select=id,name,city_index,rating,reviews,photo_url,description&category=eq."+CAT+"&order=rating.desc&limit=12",{headers:{apikey:K,Authorization:"Bearer "+K}})
 .then(function(r){return r.json()}).then(function(rows){
-var html=(rows||[]).map(card).join("");
-if(!rows||rows.length===0){html='<div class="slot-card"><span class="big">👷</span><strong>Aucun professionnel publié pour le moment</strong><p>Vous exercez le métier de réparateur d'électroménager à Rabat ? Soyez le premier à créer votre fiche gratuite.</p><a href="index.html">Créer ma fiche pro</a></div>';}
-else{html+='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Vous êtes réparateur d'électroménager à Rabat ? Rejoignez l&#39;annuaire et recevez des clients en direct, gratuitement.</p><a href="index.html">Créer ma fiche pro</a></div>';}
+rows = rows || [];
+var localRows = rows.filter(function(p){return p.city_index === CI});
+var hasLocal = localRows.length > 0;
+var displayRows = hasLocal ? localRows.slice(0,6) : rows.slice(0,6);
+var html = displayRows.map(card).join("");
+if(!hasLocal && rows.length > 0){
+html = '<div class="slot-card" style="grid-column:1/-1;border-style:solid;border-color:#fbbf24;background:#fef3c7"><span class="big">🌍</span><strong>Aucun réparateur d'électroménager publié à Rabat pour le moment</strong><p>Voici les réparateurs d'électroménager les mieux notés d&#39;autres villes, susceptibles de se déplacer ou de vous conseiller à distance.</p></div>' + html;
+}
+if(displayRows.length === 0){
+html='<div class="slot-card"><span class="big">👷</span><strong>Aucun réparateur d'électroménager publié pour le moment</strong><p>Vous exercez le métier de réparateur d'électroménager à Rabat ou ailleurs au Maroc ? Soyez le premier à créer votre fiche gratuite.</p><a href="index.html">Créer ma fiche pro</a></div>';
+}else{
+html+='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Vous êtes réparateur d'électroménager à Rabat ? Rejoignez l&#39;annuaire et recevez des clients en direct, gratuitement.</p><a href="index.html">Créer ma fiche pro</a></div>';
+}
 g.innerHTML=html;
 var hp=document.getElementById("heroPro"),cd=document.getElementById("ctaDevis");
-if(rows&&rows.length>0){var r0=rows[0];var sh0=(r0.description&&r0.description.short_fr)||"";var av0=r0.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
+var r0 = localRows[0] || rows[0];
+if(r0){
+var sh0=(r0.description&&r0.description.short_fr)||"";
+var av0=r0.photo_url||"https://randomuser.me/api/portraits/men/32.jpg";
 if(hp){hp.innerHTML='<span class="hp-badge">⭐ Professionnel en vedette</span><img class="ava" src="'+av0+'" alt=""><h3>'+r0.name+'</h3><div class="hp-job">Réparateur d'électroménager</div><div class="hp-city">📍 Rabat</div><p class="hp-short">'+sh0+'</p><span class="hp-rate">★ '+Number(r0.rating||0).toFixed(1)+' ('+(r0.reviews||0)+' avis)</span><button class="hp-btn"><a href="index.html#pro='+r0.id+'">Contacter</a></button><button class="hp-btn sec"><a href="index.html#pro='+r0.id+'">Voir le profil complet</a></button>';}
 if(cd){cd.href="index.html#pro="+r0.id;}
-}else{if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Vous êtes réparateur d'électroménager à Rabat ? Soyez le premier professionnel en vedette de cette page.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}}
-}).catch(function(){g.innerHTML='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Rejoignez l&#39;annuaire des réparateurs d'électroménager de Rabat.</p><a href="index.html">Créer ma fiche pro</a></div>';var hp=document.getElementById("heroPro");if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Rejoignez l&#39;annuaire des réparateurs d'électroménager de Rabat et devenez le professionnel en vedette.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}});
+}else{
+if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Vous êtes réparateur d'électroménager à Rabat ? Soyez le premier professionnel en vedette de cette page.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}
+}
+}).catch(function(){
+g.innerHTML='<div class="slot-card"><span class="big">🚀</span><strong>Votre fiche ici</strong><p>Rejoignez l&#39;annuaire des réparateurs d'électroménager de Rabat.</p><a href="index.html">Créer ma fiche pro</a></div>';
+var hp=document.getElementById("heroPro");
+if(hp){hp.innerHTML='<span class="hp-badge">🚀 Votre fiche ici</span><div class="hp-loading">Rejoignez l&#39;annuaire des réparateurs d'électroménager de Rabat et devenez le professionnel en vedette.</div><button class="hp-btn"><a href="index.html">Créer ma fiche pro</a></button>';}
+});
 })();
 </script>
 </body>
