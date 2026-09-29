@@ -1371,7 +1371,7 @@ async function listLibrary(catId){
 if(libraryCache[catId])return libraryCache[catId];
 const{data,error}=await sb.storage.from("pro-photos").list("library/"+catId,{limit:200});
 if(error||!data){libraryCache[catId]=[];return[]}
-const urls=data.filter(o=>o.name&&/\.(png|jpe?g|webp|gif)$/i.test(o.name)).map(o=>sb.storage.from("pro-photos").getPublicUrl("library/"+catId+"/"+o.name).publicUrl);
+const urls=data.filter(o=>o.name&&/\.(png|jpe?g|webp|gif)$/i.test(o.name)).map(o=>sb.storage.from("pro-photos").getPublicUrl("library/"+catId+"/"+o.name).data.publicUrl);
 libraryCache[catId]=urls;return urls;
 }
 function libCatsForForm(){
